@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Impact Bootstrap Template - Index</title>
+  <title>KOMAHA - Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -70,7 +70,7 @@
           <li><a href="#portfolio">Rekomendasi Kost</a></li>
           <li><a href="#about">Tentang Kami</a></li>
           <li><a href="#contact">Hubungi Kami</a></li>
-          <li><a href="#">Masuk</a></li>
+          <li><a href="<?= route_to(session('IS_LOGIN') == 1 ? 'dash-dashboard' : 'auth-user') ?>"><?= session('IS_LOGIN') == 1 ? 'Halaman Dashboard' : 'Masuk' ?></a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -152,9 +152,9 @@
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
 
           <div class="col-lg-4 col-md-6">
-            <div class="service-item  position-relative">
+            <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-activity"></i>
+                <i class="bi bi-house-fill"></i>
               </div>
               <h3>Pemesanan Kos</h3>
               <p>Kami menawarkan jasa sewa kos di Kota Malang dengan harga yang terjangkau bagi kantong mahasiswa.</p>
@@ -164,7 +164,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-broadcast"></i>
+                <i class="bi bi-cup-hot-fill"></i>
               </div>
               <h3>Catering</h3>
               <p>Selain pemesanan kos, kami juga menawarkan pemesanan catering untuk memenuhi hidangan acara anda.</p>
@@ -174,7 +174,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="bi bi-easel"></i>
+                <i class="bi bi-snow2"></i>
               </div>
               <h3>Cleaning Service</h3>
               <p>Kami siap kapan saja dan dimana saja dibutuhkan untuk mengurus kebersihan pada rumah anda.</p>

@@ -13,4 +13,15 @@ class Home extends BaseController
     {
         return view('home/detail-kost');
     }
+
+    public function auth()
+    {
+        return view('home/login');
+    }
+
+    public function register()
+    {
+        return view('home/register');
+    }
+
 }

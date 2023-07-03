@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Impact Bootstrap Template - Index</title>
+  <title>KOMAHA - Detail Kost</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -70,7 +70,7 @@
           <li><a href="<?= base_url() ?>/#portfolio">Rekomendasi Kost</a></li>
           <li><a href="<?= base_url() ?>/#about">Tentang Kami</a></li>
           <li><a href="<?= base_url() ?>/#contact">Hubungi Kami</a></li>
-          <li><a href="#">Masuk</a></li>
+          <li><a href="<?= route_to('auth-user') ?>">Masuk</a></li>
         </ul>
       </nav><!-- .navbar -->
 

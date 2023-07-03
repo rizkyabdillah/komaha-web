@@ -1001,6 +1001,7 @@ section {
 
 .services .service-item:hover h3 {
   border-color: var(--color-primary);
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------
@@ -1769,7 +1770,7 @@ section {
   height: 100%;
   background: #fff;
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 50px;
   border-radius: 0 10px 10px 0;
 }
 
@@ -1819,6 +1820,7 @@ section {
 }
 
 .contact .php-email-form input,
+.contact .php-email-form select,
 .contact .php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
@@ -1826,17 +1828,24 @@ section {
 }
 
 .contact .php-email-form input[type=text],
+.contact .php-email-form input[type=password],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=number],
+.contact .php-email-form select,
 .contact .php-email-form textarea {
   padding: 12px 15px;
 }
 
 .contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=password]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=number]:focus,
+.contact .php-email-form select:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--color-primary);
 }
 
+.contact .php-email-form select,
 .contact .php-email-form textarea {
   padding: 10px 12px;
 }
@@ -1848,6 +1857,7 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 50px;
+  font-weight: bold;
 }
 
 .contact .php-email-form button[type=submit]:hover {
@@ -2523,6 +2533,17 @@ section {
 }
 
 .blog .comments .reply-form input:focus {
+  box-shadow: none;
+  border-color: rgba(0, 131, 116, 0.8);
+}
+
+.blog .comments .reply-form select {
+  border-radius: 4px;
+  padding: 10px 10px;
+  font-size: 14px;
+}
+
+.blog .comments .reply-form select:focus {
   box-shadow: none;
   border-color: rgba(0, 131, 116, 0.8);
 }
