@@ -223,7 +223,7 @@ ol {
 .custom-select:focus,
 .custom-file-label:focus {
   background-color: #fefeff;
-  border-color: #95a0f4;
+  border-color: #008374;
 }
 
 .input-group-text,
@@ -988,7 +988,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .card.card-hero .card-header {
   padding: 40px;
-  background-image: linear-gradient(to bottom, #008374, #95a0f4);
+  background-image: linear-gradient(to bottom, #008374, #008374);
   color: #fff;
   overflow: hidden;
   height: auto;
@@ -1848,17 +1848,17 @@ h6 .badge {
 }
 .btn-primary:focus,
 .btn-primary.disabled:focus {
-  background-color: #394eea !important;
+  background-color: #008374 !important;
 }
 .btn-primary:focus:active,
 .btn-primary.disabled:focus:active {
-  background-color: #394eea !important;
+  background-color: #008374 !important;
 }
 .btn-primary:active,
 .btn-primary:hover,
 .btn-primary.disabled:active,
 .btn-primary.disabled:hover {
-  background-color: #394eea !important;
+  background-color: #008374 !important;
 }
 
 .btn-outline-primary,

@@ -16,12 +16,11 @@ class Home extends BaseController
 
     public function auth()
     {
-        return view('home/login');
+        return view('home/auth');
     }
 
     public function register()
     {
         return view('home/register');
     }
-
 }

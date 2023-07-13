@@ -23,7 +23,7 @@ class Auth extends BaseController
             $this->model->insertData('USER', $DATA);
             session()->setFlashData('status', 'success');
             session()->setFlashData('pesan', 'Berhasil mendaftar, silahkan masuk!');
-            return redirect()->to(route_to('auth-view'));
+            return redirect()->to(route_to('auth-user-view'));
         }
     }
 
@@ -32,7 +32,7 @@ class Auth extends BaseController
         $DATA               = $this->request->getVar();
         $CEK_USERNAME       = $this->model->getRowDataArray('USER', ['USERNAME' => $DATA['USERNAME']]);
 
-        $VALIDASI = is_null($CEK_USERNAME) ? true : !hash_equals($CEK_USERNAME['PASSWORD'], $DATA['PASSWORD']);
+        $VALIDASI = is_null($CEK_USERNAME) ? true : (!hash_equals($CEK_USERNAME['PASSWORD'], $DATA['PASSWORD']) ? true : hash_equals($CEK_USERNAME['LEVEL'], $DATA['USERNAME']));
         if ($VALIDASI) {
             session()->setFlashData('status', 'danger');
             session()->setFlashData('pesan', 'Username atau password anda salah!');
@@ -41,14 +41,15 @@ class Auth extends BaseController
 
         session()->set([
             'IS_LOGIN' => 1,
+            'LOGIN_AS' => "USER",
             'NAMA_LENGKAP' => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
         ]);
-        return redirect()->to(route_to('dash-dashboard'));
+        return redirect()->to(route_to('dashboard-user'));
     }
 
     public function logout()
     {
         session()->destroy();
-        return redirect()->to(route_to('auth-user'));
+        return redirect()->to(route_to('auth-user-view'));
     }
 }

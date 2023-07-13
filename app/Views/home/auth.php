@@ -89,14 +89,14 @@
         <div class="row d-flex justify-content-center gx-lg-0 gy-4">
 
           <div class="col-lg-5">
-            <form action="<?= route_to('auth-view') ?>" method="post" role="form" class="php-email-form">
+            <form action="<?= route_to('auth-user') ?>" method="post" role="form" class="php-email-form">
               <?php if (session()->getFlashData('pesan')) : ?>
                 <div class="alert alert-<?= session()->getFlashData('status') ?>" role="alert">
                   <?= session()->getFlashData('pesan'); ?>
                 </div>
               <?php endif; ?>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="USERNAME" placeholder="Username" onkeyup="this.value = this.value.toUpperCase()"  required>
+                <input type="text" class="form-control" name="USERNAME" placeholder="Username" onkeyup="this.value = this.value.toUpperCase()" required>
               </div>
               <div class="form-group mt-2">
                 <input type="password" class="form-control" name="PASSWORD" placeholder="Password" required>

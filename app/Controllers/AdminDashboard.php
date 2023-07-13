@@ -2,24 +2,24 @@
 
 namespace App\Controllers;
 
-class DashDashboard extends BaseController
+class AdminDashboard extends BaseController
 {
 
     private function arrayDefault()
     {
         return [
-            'titlePage'         => 'KOMAHA - Dashboard',
+            'titlePage'         => 'KOMAHA - Admin Dashboard',
             'sectionTitle'      => 'Dashboard',
-            'linkBreadCrumb'    => route_to('dashboard-user'),
+            'linkBreadCrumb'    => route_to('adminDash'),
             'isBack'            => false,
             'breadCrumb'        => [
-                'Dashboard', 'Dashboard', ''
+                'Dashboard', 'Admin Dashboard', ''
             ],
         ];
     }
 
     public function index()
     {
-        return view('home/user-dashboard', array_merge($this->arrayDefault(), []));
+        return view('admin/dashboard', array_merge($this->arrayDefault(), []));
     }
 }

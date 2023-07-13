@@ -22,8 +22,15 @@
 	<script text="text/javascript">
 		const CURRENT_URI = $(location).attr('href').split('/');
 		switch (CURRENT_URI[3]) {
-			case 'dash-dashboard':
-				$('#dash-dashboard').addClass('active');
+			case 'user':
+				$('#dashboard-user').addClass('active');
+				break;
+			case 'admin':
+				$('#dashboard-admin').addClass('active');
+				break;
+		}
+		switch (CURRENT_URI[4]) {
+			case '':
 				break;
 		}
 	</script>

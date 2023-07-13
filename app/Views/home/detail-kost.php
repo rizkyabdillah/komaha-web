@@ -132,13 +132,13 @@
               <h2>Fasilitas</h2>
 
               <ul>
-                <li><i class="bi bi-check-circle-fill"></i> Lokasi strategis dekat dengan UB, UIN, UM.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Tempat nyaman.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Kamar mandi dalam.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Shower.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Kloset duduk.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Dapur bersama.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Ukuran 3.5 x 5 meter.</li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Lokasi strategis dekat dengan UB, UIN, UM.</h5></li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Tempat nyaman.</h5></li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Kamar mandi dalam.</h5></li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Shower.</h5></li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Kloset duduk.</h5></li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Dapur bersama.</h5></li>
+                <li><h5><i class="bi bi-check-circle-fill"></i> Ukuran 3.5 x 5 meter.</h5></li>
               </ul>
 
             </div>

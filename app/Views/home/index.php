@@ -70,7 +70,7 @@
           <li><a href="#portfolio">Rekomendasi Kost</a></li>
           <li><a href="#about">Tentang Kami</a></li>
           <li><a href="#contact">Hubungi Kami</a></li>
-          <li><a href="<?= route_to(session('IS_LOGIN') == 1 ? 'dash-dashboard' : 'auth-user') ?>"><?= session('IS_LOGIN') == 1 ? 'Halaman Dashboard' : 'Masuk' ?></a></li>
+          <li><a href="<?= route_to(session('IS_LOGIN') == 1 ? 'dashboard-user' : 'auth-user') ?>"><?= session('IS_LOGIN') == 1 ? 'Halaman Dashboard' : 'Masuk' ?></a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -246,7 +246,7 @@
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
-            
+
             <div class="col-xl-4 col-md-6 portfolio-item filter-product">
               <div class="portfolio-wrap">
                 <a href="<?= base_url(); ?>/assets1/img/kost/kost-04.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-04.jpg" class="img-fluid" alt=""></a>
@@ -259,7 +259,7 @@
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
-            
+
             <div class="col-xl-4 col-md-6 portfolio-item filter-books">
               <div class="portfolio-wrap">
                 <a href="<?= base_url(); ?>/assets1/img/kost/kost-05.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-05.jpg" class="img-fluid" alt=""></a>
@@ -272,7 +272,7 @@
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
-            
+
             <div class="col-xl-4 col-md-6 portfolio-item filter-product">
               <div class="portfolio-wrap">
                 <a href="<?= base_url(); ?>/assets1/img/kost/kost-06.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-06.webp" class="img-fluid" alt=""></a>
@@ -322,7 +322,7 @@
                 <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
               </ul> -->
               <p>
-                Saat ini kami memiliki lebih dari 1 juta kamar kos yang tersebar di seluruh Kota Malang. Pamikos berusaha untuk bisa terus menyajikan data ketersediaan kamar yang akurat, agar calon penghuni mendapatkan kemudahan dalam pencarian kos. 
+                Saat ini kami memiliki lebih dari 1 juta kamar kos yang tersebar di seluruh Kota Malang. Pamikos berusaha untuk bisa terus menyajikan data ketersediaan kamar yang akurat, agar calon penghuni mendapatkan kemudahan dalam pencarian kos.
               </p>
 
               <div class="position-relative mt-4">

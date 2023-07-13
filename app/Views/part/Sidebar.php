@@ -9,8 +9,14 @@
         <ul class="sidebar-menu">
             <!-- ==== -->
             <li class="menu-header">Dashboard</li>
-            <li id="dash-dashboard">
-                <a class="nav-link" href="<?= route_to('dash-dashboard') ?>">
+            <li id="dashboard-user">
+                <a class="nav-link" href="<?= route_to('dashboard-user') ?>">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li id="dashboard-admin">
+                <a class="nav-link" href="<?= route_to('dashboard-admin') ?>">
                     <i class="fas fa-chart-line"></i>
                     <span>Dashboard</span>
                 </a>

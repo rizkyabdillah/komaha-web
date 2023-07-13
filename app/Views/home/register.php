@@ -132,7 +132,7 @@
                                 <textarea class="form-control" name="ALAMAT" rows="7" placeholder="Alamat" required></textarea>
                             </div>
                             <div class="form-group mt-4 text-center">
-                                Sudah punya akun? <a href="<?= route_to('auth-view') ?>">Masuk</a>
+                                Sudah punya akun? <a href="<?= route_to('auth-user-view') ?>">Masuk</a>
                             </div>
                             <div class="text-center mt-4">
                                 <button type="submit">DAFTAR</button>
