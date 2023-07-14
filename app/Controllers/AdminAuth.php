@@ -22,16 +22,18 @@ class AdminAuth extends BaseController
         }
 
         session()->set([
-            'IS_LOGIN' => 1,
-            'LOGIN_AS' => "ADMIN",
-            'NAMA_LENGKAP' => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
+            'IS_LOGIN_ADMIN'        => 1,
+            'LEVEL_ADMIN'           => $CEK_USERNAME['LEVEL'],
+            'NAMA_LENGKAP_ADMIN'    => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
         ]);
         return redirect()->to(route_to('dashboard-admin'));
     }
 
     public function logout()
     {
-        session()->destroy();
-        return redirect()->to(route_to('auth-user'));
+        session()->remove('IS_LOGIN_ADMIN');
+        session()->remove('LEVEL_ADMIN');
+        session()->remove('NAMA_LENGKAP_ADMIN');
+        return redirect()->to(route_to('auth-admin-view'));
     }
 }

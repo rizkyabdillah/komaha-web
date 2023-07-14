@@ -15,30 +15,31 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
-$routes->group('', function ($routes) {
-    $routes->get('',                    'Home::index',                      ['as' => 'index']);
-    $routes->get('detail-kost',         'Home::detailKost',                 ['as' => 'detail-kost']);
-    $routes->get('login',               'Home::auth',                       ['as' => 'auth-user-view']);
-    $routes->get('register',            'Home::register',                   ['as' => 'regist-view']);
-
-
-    $routes->post('auth',               'Auth::auth',                       ['as' => 'auth-user']);
-    $routes->get('logout',              'Auth::logout',                     ['as' => 'logout-user']);
-    $routes->post('register',           'Auth::register',                   ['as' => 'regist-user']);
-
-    $routes->group('user', function ($routes) {
-        $routes->get('',                'DashDashboard::index',             ['as' => 'dashboard-user']);
-    });
-
-    // ================>> <<||>>
-
-    $routes->get('admin/login',         'AdminAuth::index',                 ['as' => 'auth-view']);
-    $routes->post('admin/auth',         'AdminAuth::auth',                  ['as' => 'auth-admin']);
-
-    $routes->group('admin', function ($routes) {
-        $routes->get('',                'AdminDashboard::index',            ['as' => 'dashboard-admin']);
-    });
+$routes->group('user', ['filter' => 'not_auth_user_filter'],       function ($routes) {
+    $routes->get('/',                'UserDashboard::index',             ['as' => 'dashboard-user']);
 });
+
+// ================>> <<||>>
+
+$routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($routes) {
+    $routes->get('/',                'AdminDashboard::index',            ['as' => 'dashboard-admin']);
+    $routes->get('user',             'AdminDashboard::index',            ['as' => 'dashboard-admin']);
+});
+
+// ================>> <<||>>
+
+$routes->get('/',                    'Home::index',                      ['as' => 'index']);
+$routes->get('detail-kost',          'Home::detailKost',                 ['as' => 'detail-kost']);
+
+$routes->get('logout-user',          'UserAuth::logout',                 ['as' => 'logout-user']);
+$routes->get('login',                'Home::auth',                       ['as' => 'auth-user-view', 'filter' => 'auth_user_filter']);
+$routes->get('register',             'Home::register',                   ['as' => 'regist-view']);
+$routes->post('register',            'UserAuth::register',               ['as' => 'regist-user']);
+$routes->post('auth',                'UserAuth::auth',                   ['as' => 'auth-user']);
+
+$routes->get('logout-admin',         'AdminAuth::logout',                ['as' => 'logout-admin']);
+$routes->get('admin/login',          'AdminAuth::index',                 ['as' => 'auth-admin-view', 'filter' => 'auth_admin_filter']);
+$routes->post('admin/auth',          'AdminAuth::auth',                  ['as' => 'auth-admin']);
 
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';

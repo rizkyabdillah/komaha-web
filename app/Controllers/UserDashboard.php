@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class DashDashboard extends BaseController
+class UserDashboard extends BaseController
 {
 
     private function arrayDefault()

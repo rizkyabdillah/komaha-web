@@ -2,6 +2,11 @@
 
 namespace Config;
 
+use App\Filters\AuthAdminFilter;
+use App\Filters\AuthUserFilter;
+use App\Filters\NotAuthAdminFilter;
+use App\Filters\NotAuthUserFilter;
+use App\Filters\NotLoginFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -18,11 +23,15 @@ class Filters extends BaseConfig
      * @var array
      */
     public $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
+        'csrf'                  => CSRF::class,
+        'toolbar'               => DebugToolbar::class,
+        'honeypot'              => Honeypot::class,
+        'invalidchars'          => InvalidChars::class,
+        'secureheaders'         => SecureHeaders::class,
+        'auth_admin_filter'     => AuthAdminFilter::class,
+        'not_auth_admin_filter' => NotAuthAdminFilter::class,
+        'auth_user_filter'      => AuthUserFilter::class,
+        'not_auth_user_filter'  => NotAuthUserFilter::class,
     ];
 
     /**

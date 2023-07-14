@@ -70,7 +70,7 @@
           <li><a href="#portfolio">Rekomendasi Kost</a></li>
           <li><a href="#about">Tentang Kami</a></li>
           <li><a href="#contact">Hubungi Kami</a></li>
-          <li><a href="<?= route_to(session('IS_LOGIN') == 1 ? 'dashboard-user' : 'auth-user') ?>"><?= session('IS_LOGIN') == 1 ? 'Halaman Dashboard' : 'Masuk' ?></a></li>
+          <li><a href="<?= route_to(session('IS_LOGIN') == 1 ? 'dashboard-user' : 'auth-user-view') ?>"><?= session('IS_LOGIN') == 1 ? 'Halaman Dashboard' : 'Masuk' ?></a></li>
         </ul>
       </nav><!-- .navbar -->
 

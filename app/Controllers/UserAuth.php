@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Auth extends BaseController
+class UserAuth extends BaseController
 {
     public function register()
     {
@@ -40,16 +40,18 @@ class Auth extends BaseController
         }
 
         session()->set([
-            'IS_LOGIN' => 1,
-            'LOGIN_AS' => "USER",
-            'NAMA_LENGKAP' => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
+            'IS_LOGIN'      => 1,
+            'LEVEL'         => $CEK_USERNAME['LEVEL'],
+            'NAMA_LENGKAP'  => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
         ]);
         return redirect()->to(route_to('dashboard-user'));
     }
 
     public function logout()
     {
-        session()->destroy();
+        session()->remove('IS_LOGIN');
+        session()->remove('LEVEL');
+        session()->remove('NAMA_LENGKAP');
         return redirect()->to(route_to('auth-user-view'));
     }
 }
