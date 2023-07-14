@@ -2,7 +2,7 @@
     <?php if ($isBack) { ?>
         <div class="section-header-back">
             <a href="<?= $linkBreadCrumb ?>" class="btn btn-icon">
-                <i class="fa-solid fa-arrow-left"></i>
+                <i class="fas fa-arrow-left"></i>
             </a>
         </div>
     <?php } ?>

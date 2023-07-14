@@ -907,7 +907,7 @@ tr:first-child > td > .fc-day-grid-event {
 /* 1.19 Selectric */
 .selectric {
   background-color: #fdfdff;
-  border-color: #e4e6fc;
+  border-color: #008374;
   min-height: 42px;
   border-radius: 3px;
   padding-left: 10px;
@@ -915,11 +915,11 @@ tr:first-child > td > .fc-day-grid-event {
 }
 .selectric:hover {
   background-color: #fdfdff;
-  border-color: #e4e6fc;
+  border-color: #008374;
 }
 .selectric:focus {
   background-color: #fefeff;
-  border-color: #95a0f4;
+  border-color: #008374;
 }
 .selectric .label {
   font-size: 13px;
@@ -934,7 +934,7 @@ tr:first-child > td > .fc-day-grid-event {
 }
 
 .selectric-open .selectric {
-  border-color: #6777ef;
+  border-color: #008374;
 }
 
 .selectric-above .selectric-items, .selectric-below .selectric-items {
@@ -955,7 +955,7 @@ tr:first-child > td > .fc-day-grid-event {
   background-color: #f2f2f2;
 }
 .selectric-items li.selected, .selectric-items li.highlighted {
-  background-color: #6777ef;
+  background-color: #008374;
   color: #fff;
 }
 

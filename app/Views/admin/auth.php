@@ -28,7 +28,7 @@
                                 <form method="POST" action="<?= route_to('auth-admin') ?>" class="needs-validation" novalidate="">
                                     <div class="form-group">
                                         <label for="username">Username</label>
-                                        <input id="username" type="username" class="form-control" name="USERNAME" tabindex="1" autofocus required>
+                                        <input id="username" type="username" class="form-control" name="USERNAME" tabindex="1" onkeyup="this.value = this.value.toUpperCase()" autofocus required>
                                         <div class="invalid-feedback">
                                             Username anda masih kosong!
                                         </div>

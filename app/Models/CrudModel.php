@@ -175,12 +175,12 @@ class CrudModel extends Model
     #############################################################
     // UPDATE DATA =================
 
-    public function updateData($table, $column_filter, $filter_value, $data)
+    public function updateDataFilter($table, $column_filter, $filter_value, $data)
     {
         return $this->getBuilder($table)->where($column_filter, $filter_value)->update($data);
     }
 
-    public function updateDataFilter($table, $data, $filter)
+    public function updateData($table, $data, $filter)
     {
         return $this->getBuilder($table)->update($data, $filter);
     }

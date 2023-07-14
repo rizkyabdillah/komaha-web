@@ -20,17 +20,25 @@
 	<script src="<?= base_url(); ?>/assets/js/custom.js"></script>
 	<?= $this->renderSection('JSTemplate'); ?>
 	<script text="text/javascript">
+
+		$(".numonly").on('input', function(e) {
+			$(this).val($(this).val().replace(/[^0-9]/g, ''));
+		});
+		
 		const CURRENT_URI = $(location).attr('href').split('/');
 		switch (CURRENT_URI[3]) {
 			case 'user':
 				$('#dashboard-user').addClass('active');
 				break;
 			case 'admin':
-				$('#dashboard-admin').addClass('active');
-				break;
-		}
-		switch (CURRENT_URI[4]) {
-			case '':
+				switch (CURRENT_URI[4]) {
+					case undefined:
+						$('#dashboard-admin').addClass('active');
+						break;
+					case 'users':
+						$('#kelola-user-admin').addClass('active');
+						break;
+				}
 				break;
 		}
 	</script>

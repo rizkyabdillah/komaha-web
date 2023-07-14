@@ -216,7 +216,7 @@ ol {
 .custom-select,
 .custom-file-label {
   background-color: #fdfdff;
-  border-color: #e4e6fc;
+  border-color: #008374;
 }
 .form-control:focus,
 .input-group-text:focus,
@@ -390,7 +390,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .selectgroup-button {
   background-color: #fdfdff;
-  border-color: #e4e6fc;
+  border-color: #008374;
   border-width: 1px;
   border-style: solid;
   display: block;
@@ -526,7 +526,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .imagecheck-figure {
   background-color: #fdfdff;
-  border-color: #e4e6fc;
+  border-color: #008374;
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
@@ -622,7 +622,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .colorinput-color {
   background-color: #fdfdff;
-  border-color: #e4e6fc;
+  border-color: #008374;
   border-width: 1px;
   border-style: solid;
   display: inline-block;

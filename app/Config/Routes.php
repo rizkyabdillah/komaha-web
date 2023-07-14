@@ -23,7 +23,17 @@ $routes->group('user', ['filter' => 'not_auth_user_filter'],       function ($ro
 
 $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($routes) {
     $routes->get('/',                'AdminDashboard::index',            ['as' => 'dashboard-admin']);
-    $routes->get('user',             'AdminDashboard::index',            ['as' => 'dashboard-admin']);
+    
+    $routes->group('users', function ($routes) {
+        $routes->get('/',            'AdminKelolaUser::index',           ['as' => 'users-admin']);
+        // $routes->get('store',        'AdminKelolaUser::storeIndex',      ['as' => 'users-store-index-admin']);
+        // $routes->post('/',           'AdminKelolaUser::store',           ['as' => 'users-store-admin']);
+        $routes->get('edit/(:any)',  'AdminKelolaUser::editIndex/$1',    ['as' => 'users-edit-index-admin']);
+        $routes->put('(:any)',       'AdminKelolaUser::update/$1',       ['as' => 'users-update-admin']);
+        $routes->delete('(:any)',    'AdminKelolaUser::delete/$1',       ['as' => 'users-delete-admin']);
+    });
+
+
 });
 
 // ================>> <<||>>
