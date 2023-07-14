@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li id="kelola-kost-admin">
-                    <a class="nav-link" href="<?= route_to('users-admin') ?>">
+                    <a class="nav-link" href="<?= route_to('kost-admin') ?>">
                         <i class="fas fa-home"></i>
                         <span>Kelola Kost</span>
                     </a>

@@ -20,11 +20,20 @@
 	<script src="<?= base_url(); ?>/assets/js/custom.js"></script>
 	<?= $this->renderSection('JSTemplate'); ?>
 	<script text="text/javascript">
-
+		function previewImg() {
+			const images = document.querySelector('.foto');
+			const imagesPreview = document.querySelector(".img-preview");
+			const readers = new FileReader();
+			readers.readAsDataURL(images.files[0]);
+			readers.onload = function(e) {
+				imagesPreview.src = e.target.result;
+			}
+		}
+		
 		$(".numonly").on('input', function(e) {
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 		});
-		
+
 		const CURRENT_URI = $(location).attr('href').split('/');
 		switch (CURRENT_URI[3]) {
 			case 'user':
@@ -37,6 +46,9 @@
 						break;
 					case 'users':
 						$('#kelola-user-admin').addClass('active');
+						break;
+					case 'kost':
+						$('#kelola-kost-admin').addClass('active');
 						break;
 				}
 				break;

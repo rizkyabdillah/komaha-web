@@ -3,8 +3,13 @@
 <?= $this->section('Content') ?>
 <div class="card card-primary">
     <div class="card-header">
-        <i class="fas fa-user-friends"></i>&nbsp;&nbsp;&nbsp;
-        <h4>Kelola Data Pengguna</h4>
+        <i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;
+        <h4>Kelola Data Kost</h4>
+        <div class="card-header-action float-right">
+            <a href="<?= route_to('kost-add-index-admin') ?>" class="btn btn-primary">
+                <i class="fas fa-plus"></i>&nbsp;&nbsp; Tambah Data&nbsp;
+            </a>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -12,11 +17,11 @@
                 <thead>
                     <tr>
                         <th class="text-center"> No </th>
-                        <th>Email</th>
-                        <th>Username</th>
-                        <th>Nama Lengkap</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Telepon</th>
+                        <th>Nama Kost</th>
+                        <th>Area</th>
+                        <th>Jenis Kost</th>
+                        <th>Periode</th>
+                        <th>Harga</th>
                         <th>Alamat</th>
                         <th class="text-center">Aksi</th>
                     </tr>
@@ -28,18 +33,18 @@
                     ?>
                         <tr>
                             <td class="text-center"><?= $i++ ?></td>
-                            <td><?= $val['EMAIL'] ?></td>
-                            <td><?= $val['USERNAME'] ?></td>
-                            <td><?= $val['NAMA_LENGKAP'] ?></td>
-                            <td><?= $val['JENIS_KELAMIN'] ?></td>
-                            <td><?= $val['TELEPON'] ?></td>
+                            <td><?= $val['NAMA_KOST'] ?></td>
+                            <td><?= $val['AREA'] ?></td>
+                            <td><?= $val['JENIS_KOST'] ?></td>
+                            <td><?= 'Per ' . ucfirst(strtolower($val['PERIODE'])) ?></td>
+                            <td><?= $val['HARGA'] ?></td>
                             <td><?= $val['ALAMAT'] ?></td>
                             <td class="text-center">
-                                <a href="<?= route_to('users-edit-index-admin', $val['ID_USER']); ?>" class="btn btn-primary btn-action" data-toggle="tooltip" data-original-title="Ubah">
+                                <a href="<?= route_to('kost-edit-index-admin', $val['ID_KOST']); ?>" class="btn btn-primary btn-action" data-toggle="tooltip" data-original-title="Ubah">
                                     <i class="fas fa-pencil-alt"></i> Edit
                                 </a>
-                                <a data-id="<?= $val['ID_USER']; ?>" class="btn btn-danger btn-action ml-1 swal-confirm" data-toggle="tooltip" data-original-title="Hapus">
-                                    <form action="<?= route_to('users-delete-admin', $val['ID_USER']); ?>" method="POST" id="hapus<?= $val['ID_USER']; ?>" class="">
+                                <a data-id="<?= $val['ID_KOST']; ?>" class="btn btn-danger btn-action ml-1 swal-confirm" data-toggle="tooltip" data-original-title="Hapus">
+                                    <form action="<?= route_to('kost-delete-admin', $val['ID_KOST']); ?>" method="POST" id="hapus<?= $val['ID_KOST']; ?>" class="">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE" />
                                     </form>

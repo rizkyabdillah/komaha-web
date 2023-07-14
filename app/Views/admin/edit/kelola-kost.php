@@ -3,25 +3,25 @@
 <?= $this->section('Content') ?>
 <div class="card card-primary">
     <div class="card-header">
-        <h4>Ubah Data Pengguna</h4>
+        <h4>Ubah Data Kost</h4>
     </div>
     <div class="card-body">
-        <form method="POST" action="<?= route_to('users-update-admin', $data['ID_USER']); ?>" class="needs-validation form-simpan" novalidate="">
+        <form method="POST" action="<?= route_to('users-update-admin'); ?>" class="needs-validation form-simpan" novalidate="">
             <input type="hidden" name="_method" value="PUT" />
             <?= csrf_field(); ?>
 
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="EMAIL" placeholder="Masukkan Email" value="<?= $data['EMAIL'] ?>" required>
+                    <label for="nama-kost">Nama Kost</label>
+                    <input type="email" class="form-control" id="nama-kost" name="NAMA_KOST" placeholder="Masukkan Email" value="<?= $data[''] ?>" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="USERNAME" placeholder="Masukkan Username" value="<?= $data['USERNAME'] ?>" onkeyup="this.value = this.value.toUpperCase()" required>
+                    <input type="text" class="form-control" id="username" name="USERNAME" placeholder="Masukkan Username" value="<?= $data[''] ?>" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="name" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap" value="<?= $data['NAMA_LENGKAP'] ?>" required>
+                    <input type="text" class="form-control" id="name" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap" value="<?= $data[''] ?>" required>
                 </div>
             </div>
 
@@ -37,23 +37,23 @@
                         'class'         => 'form-control selectric',
                         'id'            => 'jk'
                     ];
-                    echo form_dropdown('JENIS_KELAMIN', $option, $data['JENIS_KELAMIN'], $js);
+                    echo form_dropdown('JENIS_KELAMIN', $option, $data[''], $js);
                     ?>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="telepon">No. Telepon</label>
-                    <input type="text" class="form-control numonly" id="telepon" name="TELEPON" placeholder="Masukkan Telepon" value="<?= $data['TELEPON'] ?>" required>
+                    <input type="text" class="form-control numonly" id="telepon" name="TELEPON" placeholder="Masukkan Telepon" value="<?= $data[''] ?>" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="PASSWORD" placeholder="Masukkan Password" value="<?= $data['PASSWORD'] ?>" required>
+                    <input type="password" class="form-control" id="password" name="PASSWORD" placeholder="Masukkan Password" value="<?= $data[''] ?>" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="alamat">Alamat</label>
-                    <textarea class="form-control" id="alamat" name="ALAMAT" required><?= $data['ALAMAT'] ?></textarea>
+                    <textarea class="form-control" id="alamat" name="ALAMAT" required><?= $data[''] ?></textarea>
                 </div>
             </div>
 
