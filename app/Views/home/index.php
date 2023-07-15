@@ -156,7 +156,7 @@
               <div class="icon">
                 <i class="bi bi-house-fill"></i>
               </div>
-              <h3>Pemesanan Kos</h3>
+              <h3 class="service-01">Pemesanan Kos</h3>
               <p>Kami menawarkan jasa sewa kos di Kota Malang dengan harga yang terjangkau bagi kantong mahasiswa.</p>
             </div>
           </div><!-- End Service Item -->
@@ -477,9 +477,15 @@
   <script src="<?= base_url(); ?>/assets1/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?= base_url(); ?>/assets1/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="<?= base_url(); ?>/assets1/vendor/php-email-form/validate.js"></script>
+	<script src="<?= base_url(); ?>/assets/modules/jquery.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="<?= base_url(); ?>/assets1/js/main.js"></script>
+  <script>
+    $(document).on("click", ".service-01", function(e) {
+      window.location.href = "<?= base_url() . route_to('daftar-kost')?>";
+    });
+  </script>
 
 </body>
 

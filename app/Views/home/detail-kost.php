@@ -70,7 +70,7 @@
           <li><a href="<?= base_url() ?>/#portfolio">Rekomendasi Kost</a></li>
           <li><a href="<?= base_url() ?>/#about">Tentang Kami</a></li>
           <li><a href="<?= base_url() ?>/#contact">Hubungi Kami</a></li>
-          <li><a href="<?= route_to('auth-user') ?>">Masuk</a></li>
+          <li><a href="<?= route_to(session('IS_LOGIN') == 1 ? 'dashboard-user' : 'auth-user-view') ?>"><?= session('IS_LOGIN') == 1 ? 'Halaman Dashboard' : 'Masuk' ?></a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -154,7 +154,7 @@
                 <li><strong>Harga</strong> <span><?= "Rp " . number_format($data['HARGA'], 2, ',', '.') ?></span></li>
                 <li><strong>Minimal Sewa</strong> <span>1 <?= ucfirst(strtolower($data['PERIODE'])) ?></span></li>
                 <li><strong>Jenis Kos</strong> <span><?= ucfirst(strtolower($data['JENIS_KOST'])) ?></span></li>
-                <li><strong>Lokasi</strong> <span><?= $data['ALAMAT'] . ', Kec. ' .  ucfirst(strtolower($data['AREA']))?>, Kota Malang</span></li>
+                <li><strong>Lokasi</strong> <span><?= $data['ALAMAT'] . ', Kec. ' .  ucfirst(strtolower($data['AREA'])) ?>, Kota Malang</span></li>
                 <li><a href="#" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
               </ul>
             </div>
