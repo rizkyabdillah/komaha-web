@@ -24,6 +24,16 @@ class Home extends BaseController
         return view('home/daftar-kost', $DATA);
     }
 
+    public function indexDaftarCatering()
+    {
+        $KOST_DATA = $this->model->getAllDataArray('CATERING');
+        $DATA = [
+            'data' => $KOST_DATA,
+        ];
+        // return dd($DATA);
+        return view('home/daftar-catering', $DATA);
+    }
+
     public function detailKost($idKost)
     {
         $KOST_DATA = $this->model->getRowDataArray('KOST', ['ID_KOST' => $idKost]);

@@ -166,7 +166,7 @@
               <div class="icon">
                 <i class="bi bi-cup-hot-fill"></i>
               </div>
-              <h3>Catering</h3>
+              <h3 class="service-02">Catering</h3>
               <p>Selain pemesanan kos, kami juga menawarkan pemesanan catering untuk memenuhi hidangan acara anda.</p>
             </div>
           </div><!-- End Service Item -->
@@ -484,6 +484,10 @@
   <script>
     $(document).on("click", ".service-01", function(e) {
       window.location.href = "<?= base_url() . route_to('daftar-kost') ?>";
+    });
+    
+    $(document).on("click", ".service-02", function(e) {
+      window.location.href = "<?= base_url() . route_to('daftar-catering') ?>";
     });
   </script>
 

@@ -57,6 +57,7 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
 $routes->get('/',                    'Home::index',                         ['as' => 'index']);
 $routes->get('detail-kost/(:any)',   'Home::detailKost/$1',                 ['as' => 'detail-kost']);
 $routes->get('daftar-kost/',         'Home::indexDaftarKost',               ['as' => 'daftar-kost']);
+$routes->get('daftar-catering/',     'Home::indexDaftarCatering',           ['as' => 'daftar-catering']);
 
 $routes->get('logout-user',          'UserAuth::logout',                    ['as' => 'logout-user']);
 $routes->get('login',                'Home::auth',                          ['as' => 'auth-user-view', 'filter' => 'auth_user_filter']);
