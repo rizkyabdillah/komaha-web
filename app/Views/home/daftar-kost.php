@@ -112,7 +112,17 @@
 
                 <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="row gy-4 portfolio-container">
+                    <div>
+                        <ul class="portfolio-flters">
+                            <li data-filter="*" class="filter-active">Semua</li>
+                            <li data-filter=".KLOJEN">Area Klojen</li>
+                            <li data-filter=".LOWOKWARU">Area Lowokwaru</li>
+                            <li data-filter=".BLIMBING">Area Blimbing</li>
+                            <li data-filter=".SUKUN">Area Sukun</li>
+                        </ul><!-- End Portfolio Filters -->
+                    </div>
+
+                    <div class="row gy-4 portfolio-container mt-5">
 
                         <?php
                         foreach ($data as $val) :
