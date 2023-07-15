@@ -92,6 +92,7 @@
                 </div>
             </div>
 
+
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="alamat">Preview Gambar</label>
@@ -99,7 +100,25 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="pilih-foto">Pilih Gambar</label>
-                    <input onchange="previewImg()" id="pilih-foto" type="file" name="FOTO" class="form-control foto" placeholder="Upload Image" accept=".png, .jpg">
+                    <input onchange="previewImg()" id="pilih-foto" type="file" name="FOTO" class="form-control foto" placeholder="Upload Image" accept=".png, .jpg, .webp">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="alamat">Rekomendasikan</label>
+                    <div class="custom-switches-stacked mt-2">
+                        <label class="custom-switch">
+                            <input type="checkbox" name="REKOMENDASI" class="custom-switch-input" value="YA">
+                            <span class="custom-switch-indicator"></span>
+                            <span class="custom-switch-description">Jadikan kost ini menjadi rekomendasi!</span>
+                        </label>
+                    </div>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Rekomendasi kost adalah kost yang direkomendasikan untuk dipilih pelanggan, dan akan tampil di halaman depan.
+                    </small>
                 </div>
             </div>
 

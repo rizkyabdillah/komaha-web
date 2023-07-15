@@ -7,8 +7,8 @@
     </div>
     <div class="card-body">
         <form method="POST" action="<?= route_to('users-update-admin', $data['ID_USER']); ?>" class="needs-validation form-simpan" novalidate="">
-            <input type="hidden" name="_method" value="PUT" />
             <?= csrf_field(); ?>
+            <input type="hidden" name="_method" value="PUT" />
 
             <div class="form-row">
                 <div class="form-group col-md-3">

@@ -45,6 +45,10 @@ class AdminKelolaKost extends BaseController
         $POST_DATA['ID_KOST']   = 'KST-' . strtoupper(random_string('alnum', 11));
         $FILE->move(ROOTPATH . 'public/assets/foto/', $POST_DATA['GAMBAR']);
 
+        if(!isset($POST_DATA['REKOMENDASI'])) {
+            $POST_DATA['REKOMENDASI'] = 'TIDAK';
+        }
+
         $this->model->insertData('KOST', $POST_DATA);
 
         // return dd($POST_DATA);
@@ -54,7 +58,7 @@ class AdminKelolaKost extends BaseController
 
     public function editIndex($idKost)
     {
-        $USER_DATA  = $this->model->getRowDataArray('USER', ['ID_KOST' => $idKost]);
+        $USER_DATA  = $this->model->getRowDataArray('KOST', ['ID_KOST' => $idKost]);
 
         $DATA = [
             'isBack'    => true,
@@ -66,14 +70,23 @@ class AdminKelolaKost extends BaseController
 
     public function update($idKost)
     {
-        $POST_DATA = $this->request->getPost();
-
-        unset($POST_DATA['csrf_test_name']);
+        $POST_DATA  = $this->request->getPost();
+        $FILE       = $this->request->getFile('FOTO');
         unset($POST_DATA['_method']);
+        unset($POST_DATA['csrf_test_name']);
 
-        $this->model->updateData('USER', $POST_DATA, ['ID_KOST' => $idKost]);
+        if (!empty($FILE->getName('GAMBAR'))) {
+            $POST_DATA['GAMBAR']    = time() . $FILE->getRandomName();
+            $FILE->move(ROOTPATH . 'public/assets/foto/', $POST_DATA['GAMBAR']);
+        }
+
+        if(!isset($POST_DATA['REKOMENDASI'])) {
+            $POST_DATA['REKOMENDASI'] = 'TIDAK';
+        }
+
+        $this->model->updateData('KOST', $POST_DATA, ['ID_KOST' => $idKost]);
         session()->setFlashData('pesan', 'Data berhasil diubah!');
-        return redirect()->to(route_to('users-admin'));
+        return redirect()->to(route_to('kost-admin'));
     }
 
     public function delete($idKost)

@@ -6,54 +6,119 @@
         <h4>Ubah Data Kost</h4>
     </div>
     <div class="card-body">
-        <form method="POST" action="<?= route_to('users-update-admin'); ?>" class="needs-validation form-simpan" novalidate="">
-            <input type="hidden" name="_method" value="PUT" />
+        <form method="POST" action="<?= route_to('kost-update-admin', $data['ID_KOST']); ?>" class="needs-validation form-simpan" novalidate="" enctype="multipart/form-data">
             <?= csrf_field(); ?>
+            <input type="hidden" name="_method" value="PUT" />
 
             <div class="form-row">
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-6">
                     <label for="nama-kost">Nama Kost</label>
-                    <input type="email" class="form-control" id="nama-kost" name="NAMA_KOST" placeholder="Masukkan Email" value="<?= $data[''] ?>" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="USERNAME" placeholder="Masukkan Username" value="<?= $data[''] ?>" required>
+                    <input type="text" class="form-control" id="nama-kost" name="NAMA_KOST" placeholder="Masukkan Nama Kost" onkeyup="this.value = this.value.toUpperCase()" value="<?= $data['NAMA_KOST'] ?>" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="name">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="name" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap" value="<?= $data[''] ?>" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="jk">Jenis Kelamin</label>
+                    <label for="jk">Jenis Kost</label>
                     <?php
                     $option = [
-                        'LAKI-LAKI'   => 'Laki - Laki',
-                        'PEREMPUAN'     => 'Perempuan',
+                        ''          => 'Pilih Jenis Kost',
+                        'PUTRA'     => 'Putra',
+                        'PUTRI'     => 'Putri',
                     ];
                     $js = [
                         'class'         => 'form-control selectric',
                         'id'            => 'jk'
                     ];
-                    echo form_dropdown('JENIS_KELAMIN', $option, $data[''], $js);
+                    echo form_dropdown('JENIS_KOST', $option, $data['JENIS_KOST'],  $js);
+                    ?>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="username">Area</label>
+                    <?php
+                    $option = [
+                        ''          => 'Pilih Area',
+                        'KLOJEN'    => 'Klojen',
+                        'LOWOKWARU' => 'Lowokwaru',
+                        'SUKUN'     => 'Sukun',
+                        'BLIMBING'  => 'Blimbing',
+                    ];
+                    $js = [
+                        'class'         => 'form-control selectric',
+                        'id'            => 'area'
+                    ];
+                    echo form_dropdown('AREA', $option,  $data['AREA'], $js);
                     ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="telepon">No. Telepon</label>
-                    <input type="text" class="form-control numonly" id="telepon" name="TELEPON" placeholder="Masukkan Telepon" value="<?= $data[''] ?>" required>
+                    <label for="harga">Harga</label>
+                    <input type="text" class="form-control numonly" id="harga" name="HARGA" placeholder="Masukkan Harga" value="<?= $data['HARGA'] ?>" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="PASSWORD" placeholder="Masukkan Password" value="<?= $data[''] ?>" required>
+                    <label for="name">Periode Pembayaran</label>
+                    <?php
+                    $option = [
+                        ''          => 'Pilih Periode',
+                        'HARI'      => 'Per Hari',
+                        'MINGGU'    => 'Per Minggu',
+                        'BULAN'     => 'Per Bulan',
+                        'TAHUN'     => 'Per Tahun',
+                    ];
+                    $js = [
+                        'class'         => 'form-control selectric',
+                        'id'            => 'periode'
+                    ];
+                    echo form_dropdown('PERIODE', $option, $data['PERIODE'], $js);
+                    ?>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="fasilitas">Fasilitas</label>
+                    <textarea class="form-control" id="fasilitas" name="FASILITAS" required><?= $data['FASILITAS'] ?></textarea>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Pisahkan antar item dengan karakter | <strong>"Pipeline"</strong> tanpa menggunakan <strong>Enter</strong>
+                    </small>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Contoh : Lokasi strategis dekat dengan UB, UIN, UM.|Tempat nyaman.|Kamar mandi dalam.|dst..
+                    </small>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="alamat">Alamat</label>
-                    <textarea class="form-control" id="alamat" name="ALAMAT" required><?= $data[''] ?></textarea>
+                    <textarea class="form-control" id="alamat" name="ALAMAT" required><?= $data['ALAMAT'] ?></textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="alamat">Preview Gambar</label>
+                    <img src="<?= base_url() ?>/assets/foto/<?= $data['GAMBAR'] ?>" class="img-thumbnail img-preview" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="pilih-foto">Pilih Gambar</label>
+                    <input onchange="previewImg()" id="pilih-foto" type="file" name="FOTO" class="form-control foto" placeholder="Upload Image" accept=".png, .jpg, .webp">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="alamat">Rekomendasikan</label>
+                    <div class="custom-switches-stacked mt-2">
+                        <label class="custom-switch">
+                            <input type="checkbox" name="REKOMENDASI" class="custom-switch-input" value="YA" <?= hash_equals($data['REKOMENDASI'], 'YA') ? 'checked' : '' ?>>
+                            <span class="custom-switch-indicator"></span>
+                            <span class="custom-switch-description">Jadikan kost ini menjadi rekomendasi!</span>
+                        </label>
+                    </div>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Rekomendasi kost adalah kost yang direkomendasikan untuk dipilih pelanggan, dan akan tampil di halaman depan.
+                    </small>
                 </div>
             </div>
 

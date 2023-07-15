@@ -22,6 +22,7 @@
                         <th>Jenis Kost</th>
                         <th>Periode</th>
                         <th>Harga</th>
+                        <th>Rekomendasi</th>
                         <th>Alamat</th>
                         <th class="text-center">Aksi</th>
                     </tr>
@@ -38,6 +39,7 @@
                             <td><?= $val['JENIS_KOST'] ?></td>
                             <td><?= 'Per ' . ucfirst(strtolower($val['PERIODE'])) ?></td>
                             <td><?= $val['HARGA'] ?></td>
+                            <td><?= $val['REKOMENDASI'] ?></td>
                             <td><?= $val['ALAMAT'] ?></td>
                             <td class="text-center">
                                 <a href="<?= route_to('kost-edit-index-admin', $val['ID_KOST']); ?>" class="btn btn-primary btn-action" data-toggle="tooltip" data-original-title="Ubah">

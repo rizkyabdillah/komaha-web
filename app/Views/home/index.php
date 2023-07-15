@@ -210,7 +210,7 @@
 
             <div class="col-xl-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-01.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-01.jpg" class="img-fluid" alt=""></a>
+                <a href="<?= base_url(); ?>/assets1/img/kost/kost-01.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost99.webp" class="img-fluid" alt=""></a>
                 <div class="portfolio-info">
                   <h4><a href="<?= route_to('detail-kost') ?>?image=kost-01.jpg&nama=Kost Pak Darmono" title="More Details">Kost Pak Darmono</a></h4>
                   <p>
