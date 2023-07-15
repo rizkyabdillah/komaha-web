@@ -20,7 +20,7 @@
                         <th>Nama Kost</th>
                         <th>Area</th>
                         <th>Jenis Kost</th>
-                        <th>Periode</th>
+                        <th>Tersedia</th>
                         <th>Harga</th>
                         <th>Rekomendasi</th>
                         <th>Alamat</th>
@@ -37,8 +37,8 @@
                             <td><?= $val['NAMA_KOST'] ?></td>
                             <td><?= $val['AREA'] ?></td>
                             <td><?= $val['JENIS_KOST'] ?></td>
-                            <td><?= 'Per ' . ucfirst(strtolower($val['PERIODE'])) ?></td>
-                            <td><?= "Rp " . number_format($val['HARGA'], 2, ',', '.')?></td>
+                            <td><?= $val['TERSEDIA'] . ' Kamar'?></td>
+                            <td><?= "Rp " . number_format($val['HARGA'], 2, ',', '.') . '/' . ucfirst(strtolower($val['PERIODE']))?></td>
                             <td><?= $val['REKOMENDASI'] ?></td>
                             <td><?= $val['ALAMAT'] ?></td>
                             <td class="text-center">

@@ -14,7 +14,7 @@
                     <label for="nama-kost">Nama Kost</label>
                     <input type="text" class="form-control" id="nama-kost" name="NAMA_KOST" placeholder="Masukkan Nama Kost" onkeyup="this.value = this.value.toUpperCase()" required>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3">
                     <label for="jk">Jenis Kost</label>
                     <?php
                     $option = [
@@ -28,6 +28,10 @@
                     ];
                     echo form_dropdown('JENIS_KOST', $option, '',  $js);
                     ?>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="tersedia">Kamar Kosong Yang Tersedia</label>
+                    <input type="text" class="form-control numonly" id="tersedia" name="TERSEDIA" placeholder="Masukkan Banyak Kamar Kosong" required>
                 </div>
             </div>
 
