@@ -29,7 +29,7 @@
 				imagesPreview.src = e.target.result;
 			}
 		}
-		
+
 		$(".numonly").on('input', function(e) {
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 		});
@@ -49,6 +49,9 @@
 						break;
 					case 'kost':
 						$('#kelola-kost-admin').addClass('active');
+						break;
+					case 'catering':
+						$('#kelola-catering-admin').addClass('active');
 						break;
 				}
 				break;

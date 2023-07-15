@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li id="kelola-catering-admin">
-                    <a class="nav-link" href="<?= route_to('-admin') ?>">
+                    <a class="nav-link" href="<?= route_to('catering-admin') ?>">
                         <i class="fas fa-utensils"></i>
                         <span>Kelola Catering</span>
                     </a>
