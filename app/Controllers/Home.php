@@ -6,7 +6,12 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('home/index');
+        $USER_DATA = $this->model->getDataWhereArray('KOST', ['REKOMENDASI' => 'YA']);
+        $DATA = [
+            'data' => $USER_DATA,
+        ];
+        // return dd($DATA);
+        return view('home/index', $DATA);
     }
 
     public function detailKost()

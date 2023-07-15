@@ -46,7 +46,7 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
 // ================>> <<||>>
 
 $routes->get('/',                    'Home::index',                      ['as' => 'index']);
-$routes->get('detail-kost',          'Home::detailKost',                 ['as' => 'detail-kost']);
+$routes->get('detail-kost/(:any)',   'Home::detailKost/$1',              ['as' => 'detail-kost']);
 
 $routes->get('logout-user',          'UserAuth::logout',                 ['as' => 'logout-user']);
 $routes->get('login',                'Home::auth',                       ['as' => 'auth-user-view', 'filter' => 'auth_user_filter']);

@@ -38,7 +38,7 @@
                             <td><?= $val['AREA'] ?></td>
                             <td><?= $val['JENIS_KOST'] ?></td>
                             <td><?= 'Per ' . ucfirst(strtolower($val['PERIODE'])) ?></td>
-                            <td><?= $val['HARGA'] ?></td>
+                            <td><?= "Rp " . number_format($val['HARGA'], 2, ',', '.')?></td>
                             <td><?= $val['REKOMENDASI'] ?></td>
                             <td><?= $val['ALAMAT'] ?></td>
                             <td class="text-center">

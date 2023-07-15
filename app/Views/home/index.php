@@ -199,92 +199,35 @@
           <div>
             <ul class="portfolio-flters">
               <li data-filter="*" class="filter-active">Semua</li>
-              <li data-filter=".filter-app">Area Klojen</li>
-              <li data-filter=".filter-product">Area Lowokwaru</li>
-              <li data-filter=".filter-branding">Area Blimbing</li>
-              <li data-filter=".filter-books">Area Sukun</li>
+              <li data-filter=".KLOJEN">Area Klojen</li>
+              <li data-filter=".LOWOKWARU">Area Lowokwaru</li>
+              <li data-filter=".BLIMBING">Area Blimbing</li>
+              <li data-filter=".SUKUN">Area Sukun</li>
             </ul><!-- End Portfolio Filters -->
           </div>
 
           <div class="row gy-4 portfolio-container">
 
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-01.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost99.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="<?= route_to('detail-kost') ?>?image=kost-01.jpg&nama=Kost Pak Darmono" title="More Details">Kost Pak Darmono</a></h4>
-                  <p>
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; Dekat dengan UB, UM, Polinema<br>
-                    <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; Rp. 5.000.000 / tahun</span>
-                  </p>
+            <?php
+            foreach ($data as $val) :
+              $ARR_FASILITAS = explode('|', $val['FASILITAS']);
+            ?>
+              <div class="col-xl-4 col-md-6 portfolio-item <?= $val['AREA'] ?>">
+                <div class="portfolio-wrap">
+                  <a href="<?= base_url(); ?>/assets/foto/<?= $val['GAMBAR'] ?>" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets/foto/<?= $val['GAMBAR'] ?>" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h4><a href="<?= route_to('detail-kost', $val['ID_KOST']) ?>" title="More Details"><?= $val['NAMA_KOST'] ?></a></h4>
+                    <p>
+                      <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; <?= $ARR_FASILITAS[0] ?><br>
+                      <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; <?= "Rp " . number_format($val['HARGA'], 2, ',', '.') ?> / <?= ucfirst(strtolower($val['PERIODE'])) ?></span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+              </div><!-- End Portfolio Item -->
 
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-02.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-02.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="<?= route_to('detail-kost') ?>?image=kost-02.jpg&nama=Kost Apik Omah" title="More Details">Kost Apik Omah</a></h4>
-                  <p>
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; Dekat dengan UB, UM, Polinema<br>
-                    <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; Rp. 5.000.000 / tahun</span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-03.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-03.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="<?= route_to('detail-kost') ?>?image=kost-03.jpg&nama=Kost Wilantoro" title="More Details">Kost Wilantoro</a></h4>
-                  <p>
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; Dekat dengan UB, UM, Polinema<br>
-                    <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; Rp. 5.000.000 / tahun</span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-04.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-04.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="<?= route_to('detail-kost') ?>?image=kost-04.jpg&nama=Kost Rania" title="More Details">Kost Rania</a></h4>
-                  <p>
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; Dekat dengan UB, UM, Polinema<br>
-                    <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; Rp. 5.000.000 / tahun</span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-05.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-05.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="<?= route_to('detail-kost') ?>?image=kost-05.jpg&nama=Kost Moro Mampir" title="More Details">Kost Moro Mampir</a></h4>
-                  <p>
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; Dekat dengan UB, UM, Polinema<br>
-                    <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; Rp. 5.000.000 / tahun</span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="<?= base_url(); ?>/assets1/img/kost/kost-06.webp" data-gallery="portfolio-gallery-app" class="glightbox"><img src="<?= base_url(); ?>/assets1/img/kost/kost-06.webp" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="<?= route_to('detail-kost') ?>?image=kost-06.webp&nama=Kost Kampung Melayu" title="More Details">Kost Kampung Melayu</a></h4>
-                  <p>
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>&nbsp; Dekat dengan UB, UM, Polinema<br>
-                    <i class="bi bi-coin flex-shrink-0"></i><span>&nbsp; Rp. 5.000.000 / tahun</span>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+            <?php
+            endforeach;
+            ?>
 
           </div><!-- End Portfolio Container -->
 
