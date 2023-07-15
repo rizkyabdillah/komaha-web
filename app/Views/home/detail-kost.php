@@ -89,7 +89,7 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
-              <h2><?= $_GET['nama'] ?></h2>
+              <h2><?= $data['NAMA_KOST'] ?></h2>
               <!-- <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p> -->
             </div>
           </div>
@@ -114,7 +114,7 @@
             <div class="swiper-wrapper align-items-center">
 
               <div class="swiper-slide">
-                <img src="<?= base_url(); ?>/assets1/img/kost/<?= $_GET['image'] ?>" alt="">
+                <img src="<?= base_url(); ?>/assets/foto/<?= $data['GAMBAR'] ?> " alt="">
               </div>
 
             </div>
@@ -132,13 +132,16 @@
               <h2>Fasilitas</h2>
 
               <ul>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Lokasi strategis dekat dengan UB, UIN, UM.</h5></li>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Tempat nyaman.</h5></li>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Kamar mandi dalam.</h5></li>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Shower.</h5></li>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Kloset duduk.</h5></li>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Dapur bersama.</h5></li>
-                <li><h5><i class="bi bi-check-circle-fill"></i> Ukuran 3.5 x 5 meter.</h5></li>
+                <?php
+                $ARR_FASILITAS = explode('|', $data['FASILITAS']);
+                foreach ($ARR_FASILITAS as $val) :
+                ?>
+                  <li>
+                    <h5><i class="bi bi-check-circle-fill"></i> <?= $val ?></h5>
+                  </li>
+                <?php
+                endforeach;
+                ?>
               </ul>
 
             </div>
@@ -148,10 +151,10 @@
             <div class="portfolio-info">
               <h3>Ringkasan Informasi</h3>
               <ul>
-                <li><strong>Harga</strong> <span>Rp. 5.000.000</span></li>
-                <li><strong>Minimal Sewa</strong> <span>1 tahun</span></li>
-                <li><strong>Jenis Kos</strong> <span>LAKI - LAKI</span></li>
-                <li><strong>Lokasi</strong> <span>Jl. Arumdalu, Kec. Lowokwaru, Kota Malang</span></li>
+                <li><strong>Harga</strong> <span><?= "Rp " . number_format($data['HARGA'], 2, ',', '.') ?></span></li>
+                <li><strong>Minimal Sewa</strong> <span>1 <?= ucfirst(strtolower($data['PERIODE'])) ?></span></li>
+                <li><strong>Jenis Kos</strong> <span><?= ucfirst(strtolower($data['JENIS_KOST'])) ?></span></li>
+                <li><strong>Lokasi</strong> <span><?= $data['ALAMAT'] . ', Kec. ' .  ucfirst(strtolower($data['AREA']))?>, Kota Malang</span></li>
                 <li><a href="#" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
               </ul>
             </div>

@@ -6,17 +6,22 @@ class Home extends BaseController
 {
     public function index()
     {
-        $USER_DATA = $this->model->getDataWhereArray('KOST', ['REKOMENDASI' => 'YA']);
+        $KOST_DATA = $this->model->getDataWhereArray('KOST', ['REKOMENDASI' => 'YA']);
         $DATA = [
-            'data' => $USER_DATA,
+            'data' => $KOST_DATA,
         ];
         // return dd($DATA);
         return view('home/index', $DATA);
     }
 
-    public function detailKost()
+    public function detailKost($idKost)
     {
-        return view('home/detail-kost');
+        $KOST_DATA = $this->model->getRowDataArray('KOST', ['ID_KOST' => $idKost]);
+
+        $DATA = [
+            'data' => $KOST_DATA,
+        ];
+        return view('home/detail-kost', $DATA);
     }
 
     public function auth()
