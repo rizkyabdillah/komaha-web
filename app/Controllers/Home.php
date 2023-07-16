@@ -44,7 +44,7 @@ class Home extends BaseController
         return view('home/detail-kost', $DATA);
     }
 
-    public function detailCaterign($idCatering)
+    public function detailCatering($idCatering)
     {
         $KOST_DATA = $this->model->getRowDataArray('CATERING', ['ID_CATERING' => $idCatering]);
 

@@ -3,7 +3,7 @@
 <?= $this->section('Content') ?>
 <div class="card card-primary">
     <div class="card-header">
-        <i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;
+        <i class="fas fa-utensils"></i>&nbsp;&nbsp;&nbsp;
         <h4>Kelola Data Catering</h4>
         <div class="card-header-action float-right">
             <a href="<?= route_to('catering-add-index-admin') ?>" class="btn btn-primary">
