@@ -3,64 +3,42 @@
 <?= $this->section('Content') ?>
 <div class="card card-primary">
     <div class="card-header">
-        <h4>Ubah Data Catering</h4>
+        <h4>Tambah Data Cleaning Service</h4>
     </div>
     <div class="card-body">
-        <form method="POST" action="<?= route_to('catering-update-admin', $data['ID_CATERING']); ?>" class="needs-validation form-simpan" novalidate="" enctype="multipart/form-data">
+        <form method="POST" action="<?= route_to('cs-store-admin'); ?>" class="needs-validation form-simpan" novalidate="" enctype="multipart/form-data">
             <?= csrf_field(); ?>
-            <input type="hidden" name="_method" value="PUT" />
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="nama-catering">Nama Menu Catering</label>
-                    <input type="text" class="form-control" id="nama-catering" name="NAMA_MENU" placeholder="Masukkan Nama Menu Catering" onkeyup="this.value = this.value.toUpperCase()" value="<?= $data['NAMA_MENU'] ?>" required>
+                    <label for="nama-service">Nama Service</label>
+                    <input type="text" class="form-control" id="nama-service" name="NAMA_SERVICE" placeholder="Masukkan Nama Service" onkeyup="this.value = this.value.toUpperCase()" required>
                 </div>
+
                 <div class="form-group col-md-3">
-                    <label for="jk">Kategori</label>
-                    <?php
-                    $option = [
-                        ''          => 'Pilih Kategori',
-                        'AYAM'      => 'Ayam',
-                        'SEAFOOD'   => 'Seafood',
-                        'SAPI'      => 'Sapi',
-                        'STEAK'     => 'Steak',
-                        'KAMBING'   => 'Kambing',
-                    ];
-                    $js = [
-                        'class'         => 'form-control selectric',
-                        'id'            => 'jk'
-                    ];
-                    echo form_dropdown('KATEGORI', $option, $data['KATEGORI'],  $js);
-                    ?>
+                    <label for="durasi">Durasi (Jam)</label>
+                    <input type="text" class="form-control numonly" id="durasi" name="DURASI" placeholder="Masukkan Durasi" required>
+                    <small>
+                        Durasi berupa lamanya waktu cleaning service dalam melayani pelanggan, masukkan input berupa <strong>"angka 1 sampai 24."</strong>
+                    </small>
                 </div>
+
                 <div class="form-group col-md-3">
                     <label for="harga">Harga</label>
-                    <input type="text" class="form-control numonly" id="harga" name="HARGA" placeholder="Masukkan Harga" value="<?= $data['HARGA'] ?>" required>
+                    <input type="text" class="form-control numonly" id="harga" name="HARGA" placeholder="Masukkan Harga" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="fasilitas">Deskripsi</label>
-                    <textarea class="form-control" id="fasilitas" name="DESKRIPSI" required><?= $data['DESKRIPSI'] ?></textarea>
+                    <textarea class="form-control" id="fasilitas" name="DESKRIPSI" required></textarea>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Pisahkan antar item dengan karakter | <strong>"Pipeline"</strong> tanpa menggunakan <strong>Enter</strong>
                     </small>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                         Contoh : Harga untuk per 1 kotak/box|Pemesanan minimal H-1|Isi dalam box berupa Nasi, Ayam Goreng, Sambal, Lalapan, Acar.|dst..
                     </small>
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="alamat">Preview Gambar</label>
-                    <img src="<?= base_url() ?>/assets/foto/<?= $data['GAMBAR'] ?>" class="img-thumbnail img-preview" />
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="pilih-foto">Pilih Gambar</label>
-                    <input onchange="previewImg()" id="pilih-foto" type="file" name="FOTO" class="form-control foto" placeholder="Upload Image" accept=".png, .jpg, .webp">
                 </div>
             </div>
 

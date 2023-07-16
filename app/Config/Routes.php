@@ -50,6 +50,15 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
         $routes->put('(:any)',              'AdminKelolaCatering::update/$1',      ['as' => 'catering-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaCatering::delete/$1',      ['as' => 'catering-delete-admin']);
     });
+
+    $routes->group('cs', function ($routes) {
+        $routes->get('',                    'AdminKelolaCS::index',                 ['as' => 'cs-admin']);
+        $routes->get('add',                 'AdminKelolaCS::addIndex',              ['as' => 'cs-add-index-admin']);
+        $routes->get('(:any)',              'AdminKelolaCS::editIndex/$1',          ['as' => 'cs-edit-index-admin']);
+        $routes->post('',                   'AdminKelolaCS::store',                 ['as' => 'cs-store-admin']);
+        $routes->put('(:any)',              'AdminKelolaCS::update/$1',             ['as' => 'cs-update-admin']);
+        $routes->delete('(:any)',           'AdminKelolaCS::delete/$1',             ['as' => 'cs-delete-admin']);
+    });
 });
 
 // ================>> <<||>>
@@ -57,8 +66,10 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
 $routes->get('/',                           'Home::index',                         ['as' => 'index']);
 $routes->get('detail-kost/(:any)',          'Home::detailKost/$1',                 ['as' => 'detail-kost']);
 $routes->get('detail-catering/(:any)',      'Home::detailCatering/$1',             ['as' => 'detail-catering']);
+$routes->get('detail-cs/(:any)',            'Home::detailCS/$1',                   ['as' => 'detail-cs']);
 $routes->get('daftar-kost/',                'Home::indexDaftarKost',               ['as' => 'daftar-kost']);
 $routes->get('daftar-catering/',            'Home::indexDaftarCatering',           ['as' => 'daftar-catering']);
+$routes->get('daftar-cs/',                  'Home::indexDaftarCS',                 ['as' => 'daftar-cs']);
 $routes->get('login',                       'Home::auth',                          ['as' => 'auth-user-view', 'filter' => 'auth_user_filter']);
 $routes->get('register',                    'Home::register',                      ['as' => 'regist-view']);
 

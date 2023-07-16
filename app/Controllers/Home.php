@@ -34,6 +34,16 @@ class Home extends BaseController
         return view('home/daftar-catering', $DATA);
     }
 
+    public function indexDaftarCS()
+    {
+        $KOST_DATA = $this->model->getAllDataArray('CLEANING_SERVICE');
+        $DATA = [
+            'data' => $KOST_DATA,
+        ];
+        // return dd($DATA);
+        return view('home/daftar-cs', $DATA);
+    }
+
     public function detailKost($idKost)
     {
         $KOST_DATA = $this->model->getRowDataArray('KOST', ['ID_KOST' => $idKost]);
@@ -52,6 +62,16 @@ class Home extends BaseController
             'data' => $KOST_DATA,
         ];
         return view('home/detail-catering', $DATA);
+    }
+
+    public function detailCS($idCS)
+    {
+        $KOST_DATA = $this->model->getRowDataArray('CLEANING_SERVICE', ['ID_CLEANING_SERVICE' => $idCS]);
+
+        $DATA = [
+            'data' => $KOST_DATA,
+        ];
+        return view('home/detail-cs', $DATA);
     }
 
     public function auth()

@@ -53,6 +53,9 @@
 					case 'catering':
 						$('#kelola-catering-admin').addClass('active');
 						break;
+					case 'cs':
+						$('#kelola-cleaning-admin').addClass('active');
+						break;
 				}
 				break;
 		}

@@ -176,7 +176,7 @@
               <div class="icon">
                 <i class="bi bi-snow2"></i>
               </div>
-              <h3>Cleaning Service</h3>
+              <h3 class="service-03">Cleaning Service</h3>
               <p>Kami siap kapan saja dan dimana saja dibutuhkan untuk mengurus kebersihan pada rumah anda.</p>
             </div>
           </div><!-- End Service Item -->
@@ -488,6 +488,10 @@
     
     $(document).on("click", ".service-02", function(e) {
       window.location.href = "<?= base_url() . route_to('daftar-catering') ?>";
+    });
+    
+    $(document).on("click", ".service-03", function(e) {
+      window.location.href = "<?= base_url() . route_to('daftar-cs') ?>";
     });
   </script>
 

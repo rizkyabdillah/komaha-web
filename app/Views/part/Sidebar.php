@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li id="kelola-cleaning-admin">
-                    <a class="nav-link" href="<?= route_to('-admin') ?>">
+                    <a class="nav-link" href="<?= route_to('cs-admin') ?>">
                         <i class="fas fa-broom"></i>
                         <span>Kelola Cleaning Service</span>
                     </a>
