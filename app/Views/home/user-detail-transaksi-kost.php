@@ -43,7 +43,7 @@
         <h4>Rincian Pembayaran</h4>
     </div>
     <div class="card-body">
-        <p>- STATUS PEMBAYARAN : <span class="badge badge-danger"><?= $dataTR['STATUS_PEMBAYARAN'] ?></span></p>
+        <p>- STATUS PEMBAYARAN : <span class="badge badge-<?= hash_equals($dataTR['STATUS_PEMBAYARAN'], 'DIKONFIRMASI') ? 'primary' : 'danger' ?>"><?= $dataTR['STATUS_PEMBAYARAN'] ?></span></p>
         <p>- METODE PEMBAYARAN : <b>Transfer BANK <?= $dataTR['BANK_PEMBAYARAN'] ?></b></p>
 
         <hr>
@@ -57,36 +57,92 @@
 
         <hr>
 
-        <p>Silahkan melakukan pembayaran dengan nominal diatas menggunakan metode <b>TRANSFER</b> menggunakan <b>BANK <?= $dataTR['BANK_PEMBAYARAN'] ?></b>, sebelum tanggal <b>(<?= $dataTR['TANGGAL_AWAL_MASUK'] ?>)</b> dengan informasi pembayaran sebagai berikut :</p>
         <?php
-        switch ($dataTR['BANK_PEMBAYARAN']) {
-            case 'BRI':
-                $NO_REK = '7746 8382 2255 03';
-                break;
-            case 'BNI':
-                $NO_REK = '3244 8271 8';
-                break;
-            case 'MANDIRI':
-                $NO_REK = '1112 3445 2255 3422';
-                break;
-            default:
-                $NO_REK = '2399 524 88';
-                break;
-        }
+        if (hash_equals($dataTR['STATUS_PEMBAYARAN'], 'BELUM BAYAR') || hash_equals($dataTR['STATUS_PEMBAYARAN'], 'KONFIRMASI DITOLAK')) :
         ?>
-        <p><b>1. </b> Nomor Rekening : <b><?= $NO_REK ?></b></p>
-        <p><b>2. </b> Nama penerima : <b>KELVIN ANDIKA PRAKOSO</b></p>
+
+            <?php
+            if (hash_equals($dataTR['STATUS_PEMBAYARAN'], 'BELUM BAYAR')) :
+            ?>
+                <p>Silahkan melakukan pembayaran dengan nominal diatas menggunakan metode <b>TRANSFER</b> menggunakan <b>BANK <?= $dataTR['BANK_PEMBAYARAN'] ?></b>, sebelum tanggal <b>(<?= $dataTR['TANGGAL_AWAL_MASUK'] ?>)</b> dengan informasi pembayaran sebagai berikut :</p>
+            <?php
+            else :
+            ?>
+                <p><b>PEMBAYARAN ANDA DITOLAK!. </b><br>Silahkan melakukan pembayaran kembali dengan nominal diatas menggunakan metode <b>TRANSFER</b> menggunakan <b>BANK <?= $dataTR['BANK_PEMBAYARAN'] ?></b>, sebelum tanggal <b>(<?= $dataTR['TANGGAL_AWAL_MASUK'] ?>)</b> dengan informasi pembayaran sebagai berikut :</p>
+
+            <?php
+            endif;
+            switch ($dataTR['BANK_PEMBAYARAN']) {
+                case 'BRI':
+                    $NO_REK = '7746 8382 2255 03';
+                    break;
+                case 'BNI':
+                    $NO_REK = '3244 8271 8';
+                    break;
+                case 'MANDIRI':
+                    $NO_REK = '1112 3445 2255 3422';
+                    break;
+                default:
+                    $NO_REK = '2399 524 88';
+                    break;
+            }
+            ?>
+            <p><b>1. </b> Nomor Rekening : <b><?= $NO_REK ?></b></p>
+            <p><b>2. </b> Nama penerima : <b>KELVIN ANDIKA PRAKOSO</b></p>
 
 
-        <button type="button" class="btn btn-info btn-lg btn-simpan">
-            <i class="fas fa-file-invoice-dollar"></i> Upload Bukti Pembayaran
-        </button>
+            <button type="button" class="btn btn-primary btn-lg btn-upload">
+                <i class="fas fa-file-invoice-dollar"></i> Upload Bukti Pembayaran
+            </button>
+
+        <?php
+        endif;
+        ?>
     </div>
 </div>
 
 
 <?= $this->endSection() ?>
 
+<?= $this->section('Modal') ?>
+<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Upload Bukti Pembayaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="<?= route_to('tr-kost-update-bukti-user', $dataTR['ID_TRANSAKSI']); ?>" class="needs-validation form-simpan" novalidate="" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="_method" value="PUT" />
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <img src="<?= base_url() ?>/assets/img/profile/default.png" class="img-thumbnail img-preview" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="pilih-foto">Pilih Gambar</label>
+                            <input onchange="previewImg()" id="pilih-foto" type="file" name="FOTO" class="form-control foto" placeholder="Upload Image" accept=".png, .jpg, .webp">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer text-right">
+                <button type="button" class="btn btn-primary btn-lg btn-simpan">
+                    <i class="fas fa-save"></i> Upload
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
 
 <?= $this->section('CSSModules') ?>
 <link rel="stylesheet" href="<?= base_url(); ?>/assets/modules/fullcalendar/fullcalendar.min.css">
@@ -108,5 +164,13 @@
             timer: 1200,
         });
     <?php endif ?>
+
+    $(document).on("click", ".btn-upload", function(e) {
+        $('#modalCenter').modal('show');
+    });
+
+    $(document).on("click", ".btn-simpan", function(e) {
+        $('.form-simpan').submit();
+    });
 </script>
 <?= $this->endSection() ?>

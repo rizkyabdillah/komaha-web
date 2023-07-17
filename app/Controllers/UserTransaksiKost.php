@@ -30,6 +30,20 @@ class UserTransaksiKost extends BaseController
         return view('home/user-detail-transaksi-kost', array_merge($this->arrayDefault(), $DATA));
     }
 
+    public function updateBuktiPembayaran($idTransaksi)
+    {
+        $FILE       = $this->request->getFile('FOTO');
+
+        $POST_DATA['BUKTI_PEMBAYARAN']  = time() . $FILE->getRandomName();
+        $POST_DATA['STATUS_PEMBAYARAN'] = 'MENUNGGU KONFIRMASI';
+        $FILE->move(ROOTPATH . 'public/assets/foto/', $POST_DATA['BUKTI_PEMBAYARAN']);
+
+        $this->model->updateData('TRANSAKSI_KOST', $POST_DATA, ['ID_TRANSAKSI' => $idTransaksi]);
+
+        session()->setFlashData('pesan', 'Bukti pembayaran berhasil di upload, tunggu sampai admin memvalidasi!');
+        return redirect()->to(route_to('tr-kost-user-detail', $idTransaksi));
+    }
+
 
     public function store()
     {
@@ -38,7 +52,15 @@ class UserTransaksiKost extends BaseController
         $POST_DATA['TANGGAL_AWAL_MASUK']    = implode("-", array_reverse(explode("/", $POST_DATA['TANGGAL_AWAL_MASUK'])));
         unset($POST_DATA['csrf_test_name']);
 
+        $CEK_DATA = $this->model->getRowDataArray('KOST', ['ID_KOST' => $POST_DATA['ID_KOST']]);
+        if ($CEK_DATA['TERSEDIA'] < 1) {
+            session()->setFlashData('pesan', 'Mohon maaf kamar sudah penuh semua');
+            return redirect()->back();
+        }
+
+        $this->model->updateData('KOST', ['TERSEDIA' => ($CEK_DATA['TERSEDIA'] - 1)], ['ID_KOST' => $POST_DATA['ID_KOST']]);
         $this->model->insertData('TRANSAKSI_KOST', $POST_DATA);
+
 
         session()->setFlashData('pesan', 'Transaksi berhasil dibuat, silahkan lakukan pembayaran!');
         return redirect()->to(route_to('tr-kost-user-detail', $POST_DATA['ID_TRANSAKSI']));
