@@ -155,7 +155,7 @@
                 <li><strong>Minimal Sewa</strong> <span>1 <?= ucfirst(strtolower($data['PERIODE'])) ?></span></li>
                 <li><strong>Jenis Kos</strong> <span><?= ucfirst(strtolower($data['JENIS_KOST'])) ?></span></li>
                 <li><strong>Lokasi</strong> <span><?= $data['ALAMAT'] . ', Kec. ' .  ucfirst(strtolower($data['AREA'])) ?>, Kota Malang</span></li>
-                <li><a href="#" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
+                <li><a href="<?= route_to('cek-tr-kost', $data['ID_KOST']) ?>" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
               </ul>
             </div>
           </div>
