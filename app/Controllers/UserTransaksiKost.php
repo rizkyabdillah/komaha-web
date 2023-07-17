@@ -20,62 +20,27 @@ class UserTransaksiKost extends BaseController
 
     public function indexDetailTransaksi($idTransaksi)
     {
-        $DATA_KOST = $this->model->getRowDataArray('KOST', ['ID_KOST' => $idTransaksi]);
+        $DATA_TRANSAKSI = $this->model->getRowDataArray('TRANSAKSI_KOST', ['ID_TRANSAKSI' => $idTransaksi]);
+        $DATA_KOST      = $this->model->getRowDataArray('KOST', ['ID_KOST' => $DATA_TRANSAKSI['ID_KOST']]);
         $DATA = [
+            'dataTR'    => $DATA_TRANSAKSI,
             'dataKost'  => $DATA_KOST,
             'isBack'    => true
         ];
         return view('home/user-detail-transaksi-kost', array_merge($this->arrayDefault(), $DATA));
     }
 
-    public function register()
+
+    public function store()
     {
-        $DATA               = $this->request->getVar();
-        $DATA['ID_USER']    = 'U-' . strtoupper(random_string('alnum', 8));
+        $POST_DATA  = $this->request->getPost();
+        $POST_DATA['ID_TRANSAKSI']          = 'TRX-' . strtoupper(random_string('alnum', 16));
+        $POST_DATA['TANGGAL_AWAL_MASUK']    = implode("-", array_reverse(explode("/", $POST_DATA['TANGGAL_AWAL_MASUK'])));
+        unset($POST_DATA['csrf_test_name']);
 
-        if (!hash_equals($DATA['PASSWORD'], $DATA['KONFIRMASI_PASSWORD'])) {
-            session()->setFlashData('pesan', 'Konfirmasi password tidak sama!');
-            return redirect()->back();
-        } else {
-            $CEK_USERNAME = $this->model->getRowDataArray('USER', ['USERNAME' => $DATA['USERNAME']]);
-            if (!is_null($CEK_USERNAME)) {
-                session()->setFlashData('pesan', 'Username ' . $DATA['USERNAME'] . ' sebelumnya sudah terdaftar!');
-                return redirect()->back();
-            }
+        $this->model->insertData('TRANSAKSI_KOST', $POST_DATA);
 
-            unset($DATA['KONFIRMASI_PASSWORD']);
-            $this->model->insertData('USER', $DATA);
-            session()->setFlashData('status', 'success');
-            session()->setFlashData('pesan', 'Berhasil mendaftar, silahkan masuk!');
-            return redirect()->to(route_to('auth-user-view'));
-        }
-    }
-
-    public function auth()
-    {
-        $DATA               = $this->request->getVar();
-        $CEK_USERNAME       = $this->model->getRowDataArray('USER', ['USERNAME' => $DATA['USERNAME']]);
-
-        $VALIDASI = is_null($CEK_USERNAME) ? true : (!hash_equals($CEK_USERNAME['PASSWORD'], $DATA['PASSWORD']) ? true : hash_equals($CEK_USERNAME['LEVEL'], $DATA['USERNAME']));
-        if ($VALIDASI) {
-            session()->setFlashData('status', 'danger');
-            session()->setFlashData('pesan', 'Username atau password anda salah!');
-            return redirect()->back();
-        }
-
-        session()->set([
-            'IS_LOGIN'      => 1,
-            'LEVEL'         => $CEK_USERNAME['LEVEL'],
-            'NAMA_LENGKAP'  => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
-        ]);
-        return redirect()->to(route_to('dashboard-user'));
-    }
-
-    public function logout()
-    {
-        session()->remove('IS_LOGIN');
-        session()->remove('LEVEL');
-        session()->remove('NAMA_LENGKAP');
-        return redirect()->to(route_to('auth-user-view'));
+        session()->setFlashData('pesan', 'Transaksi berhasil dibuat, silahkan lakukan pembayaran!');
+        return redirect()->to(route_to('tr-kost-user-detail', $POST_DATA['ID_TRANSAKSI']));
     }
 }

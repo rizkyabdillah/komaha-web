@@ -20,6 +20,7 @@ $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($r
     $routes->group('tr-kost', function ($routes) {
         $routes->get('',                    'UserTransaksiKost::index',                     ['as' => 'tr-kost-user']);
         $routes->get('(:any)',              'UserTransaksiKost::indexDetailTransaksi/$1',   ['as' => 'tr-kost-user-detail']);
+        $routes->post('',                   'UserTransaksiKost::store',                     ['as' => 'tr-kost-store-user']);
 
     });
 });

@@ -41,6 +41,7 @@ class UserAuth extends BaseController
 
         session()->set([
             'IS_LOGIN'      => 1,
+            'ID_USER'       => $CEK_USERNAME['ID_USER'],
             'LEVEL'         => $CEK_USERNAME['LEVEL'],
             'NAMA_LENGKAP'  => ucfirst(strtolower($CEK_USERNAME['NAMA_LENGKAP']))
         ]);

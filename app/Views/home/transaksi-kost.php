@@ -35,7 +35,7 @@
                                 <div class="alert-icon"><i class="fas fa-times"></i></div>
                                 <div class="alert-body">
                                     <div class="alert-title">Danger</div>
-                                    <?= session()->getFlashData('pesan'); ?>    
+                                    <?= session()->getFlashData('pesan'); ?>
                                 </div>
                             </div>
                         <?php endif; ?>
@@ -72,11 +72,14 @@
                             </div>
                             <div class="card-body">
 
-                                <form method="POST" action="<?= route_to('cs-store-admin'); ?>" class="needs-validation form-simpan" novalidate="">
+                                <form method="POST" action="<?= route_to('tr-kost-store-user'); ?>" class="needs-validation form-simpan" novalidate="">
                                     <?= csrf_field(); ?>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="tanggal">Tanggal Awal Masuk</label>
+                                            <input type="hidden" name="ID_KOST" value="<?= $data['ID_KOST'] ?>">
+                                            <input type="hidden" name="TOTAL" value="<?= $data['HARGA'] ?>">
+                                            <input type="hidden" name="ID_USER" value="<?= session('ID_USER') ?>">
                                             <input type="text" class="form-control  datepicker" id="tanggal" name="TANGGAL_AWAL_MASUK" placeholder="Pilih Tanggal Awal Masuk" required>
                                         </div>
                                     </div>
@@ -137,6 +140,10 @@
         $(document).on("keydown", "#tanggal", function(e) {
             e.preventDefault();
             return false;
+        });
+
+        $(document).on("click", ".btn-simpan", function(e) {
+            $('.form-simpan').submit();
         });
     </script>
 </body>
