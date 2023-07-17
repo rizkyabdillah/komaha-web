@@ -92,6 +92,12 @@
                         <span>Transaksi Kost</span>
                     </a>
                 </li>
+                <li id="transaksi-catering-admin">
+                    <a class="nav-link" href="<?= route_to('tr-catering-admin') ?>">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Transaksi Catering</span>
+                    </a>
+                </li>
             <?php endif; ?>
 
 

@@ -3,8 +3,8 @@
 <?= $this->section('Content') ?>
 <div class="card card-primary">
     <div class="card-header">
-        <i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;&nbsp;
-        <h4>Daftar Transaksi Kost</h4>
+        <i class="fas fa-credit-card"></i>&nbsp;&nbsp;&nbsp;
+        <h4>Daftar Transaksi Catering</h4>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -12,10 +12,10 @@
                 <thead>
                     <tr>
                         <th class="text-center"> No </th>
-                        <th>Nama Kost</th>
-                        <th>Nama Penyewa</th>
-                        <th>Tanggal Masuk</th>
-                        <th>Tanggal Keluar</th>
+                        <th>Nama Menu</th>
+                        <th>Nama Pemesan</th>
+                        <th>Tanggal Pengiriman</th>
+                        <th>Banyak</th>
                         <th>Total</th>
                         <th>Jenis Pembayaran</th>
                         <th>Bank Tujuan</th>
@@ -27,28 +27,14 @@
                     <?php
                     $i = 1;
                     foreach ($data as $data) :
-                        switch ($data['PERIODE']) {
-                            case 'TAHUN':
-                                $PERIODE = '+1 year';
-                                break;
-                            case 'BULAN':
-                                $PERIODE = '+1 months';
-                                break;
-                            case 'MINGGU':
-                                $PERIODE = '+1 week';
-                                break;
-                            case 'HARI':
-                                $PERIODE = '+1 day';
-                                break;
-                        }
                     ?>
                         <tr>
                             <td class="text-center"><?= $i++ ?></td>
-                            <td><?= $data['NAMA_KOST'] ?></td>
+                            <td><?= $data['NAMA_MENU'] ?></td>
                             <td><?= $data['NAMA_LENGKAP'] ?></td>
-                            <td><?= $data['TANGGAL_AWAL_MASUK'] ?></td>
-                            <td><?= date('Y-m-d', strtotime($data['TANGGAL_AWAL_MASUK'] . $PERIODE))  ?></td>
-                            <td><?= "Rp " . number_format($data['HARGA'], 2, ',', '.') ?></td>
+                            <td><?= $data['TANGGAL_PENGIRIMAN'] ?></td>
+                            <td><?= $data['QUANTITY'] ?></td>
+                            <td><?= "Rp " . number_format($data['TOTAL'], 2, ',', '.') ?></td>
                             <td>Transfer Bank</td>
                             <td>Bank <?= $data['BANK_PEMBAYARAN'] ?></td>
                             <td><span class="badge badge-<?= hash_equals($data['STATUS_PEMBAYARAN'], 'DIKONFIRMASI') ? 'primary' : 'danger' ?>"><?= $data['STATUS_PEMBAYARAN'] ?></span></td>
@@ -57,7 +43,7 @@
                                 if (hash_equals($data['STATUS_PEMBAYARAN'], 'MENUNGGU KONFIRMASI') || hash_equals($data['STATUS_PEMBAYARAN'], 'KONFIRMASI DITOLAK')) :
                                 ?>
                                     <a class="btn btn-primary btn-action btn-acc" data-toggle="tooltip" data-original-title="Konfirmasi">
-                                        <form action="<?= route_to('tr-kost-update-status-admin', $data['ID_TRANSAKSI']); ?>" method="POST" id="konfirmasi" class="">
+                                        <form action="<?= route_to('tr-catering-update-status-admin', $data['ID_TRANSAKSI']); ?>" method="POST" id="konfirmasi" class="">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="_method" value="PUT" />
                                             <input type="hidden" name="STATUS_PEMBAYARAN" value="DIKONFIRMASI" />
@@ -68,7 +54,7 @@
                                 elseif (hash_equals($data['STATUS_PEMBAYARAN'], 'DIKONFIRMASI')) :
                                 ?>
                                     <a class="btn btn-danger btn-action btn-rej" data-toggle="tooltip" data-original-title="Tolak">
-                                        <form action="<?= route_to('tr-kost-update-status-admin', $data['ID_TRANSAKSI']); ?>" method="POST" id="tolak" class="">
+                                        <form action="<?= route_to('tr-catering-update-status-admin', $data['ID_TRANSAKSI']); ?>" method="POST" id="tolak" class="">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="_method" value="PUT" />
                                             <input type="hidden" name="STATUS_PEMBAYARAN" value="KONFIRMASI DITOLAK" />

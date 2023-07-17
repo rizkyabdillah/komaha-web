@@ -75,7 +75,12 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
     $routes->group('tr-kost', function ($routes) {          
         $routes->get('',                    'AdminTransaksiKost::index',                                ['as' => 'tr-kost-admin']);
         $routes->put('(:any)',              'AdminTransaksiKost::updateStatus/$1',                      ['as' => 'tr-kost-update-status-admin']);
-    });         
+    });            
+
+    $routes->group('tr-catering', function ($routes) {          
+        $routes->get('',                    'AdminTransaksiCatering::index',                            ['as' => 'tr-catering-admin']);
+        $routes->put('(:any)',              'AdminTransaksiCatering::updateStatus/$1',                  ['as' => 'tr-catering-update-status-admin']);
+    });   
 });         
 
 // ================>> <<||>>            

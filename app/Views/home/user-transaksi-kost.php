@@ -3,7 +3,7 @@
 <?= $this->section('Content') ?>
 <div class="card card-primary">
     <div class="card-header">
-        <i class="fas fa-broom"></i>&nbsp;&nbsp;&nbsp;
+        <i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;&nbsp;
         <h4>Daftar Transaksi Kost</h4>
     </div>
     <div class="card-body">

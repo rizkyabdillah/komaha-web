@@ -68,6 +68,9 @@
 					case 'tr-kost':
 						$('#transaksi-kost-admin').addClass('active');
 						break;
+					case 'tr-catering':
+						$('#transaksi-catering-admin').addClass('active');
+						break;
 				}
 				break;
 		}

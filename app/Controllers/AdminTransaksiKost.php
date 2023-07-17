@@ -10,10 +10,10 @@ class AdminTransaksiKost extends BaseController
         return [
             'titlePage'         => 'KOMAHA - Admin Transaksi Kost',
             'sectionTitle'      => 'Data Transaksi Kost',
-            'linkBreadCrumb'    => route_to('users-admin'),
+            'linkBreadCrumb'    => route_to('tr-kost-admin'),
             'isBack'            => false,
             'breadCrumb'        => [
-                'Master Data', 'Data Pengguna', ''
+                'Transaksi', 'Transaksi Kost', ''
             ],
         ];
     }
