@@ -80,10 +80,10 @@
             <?php endif; ?>
 
             <?php if (hash_equals($SEGMENT, 'admin')) : ?>
-                <li id="transaksi-admin">
-                    <a class="nav-link" href="<?= route_to('-admin') ?>">
-                        <i class="fas fa-receipt"></i>
-                        <span>Daftar Transaksi</span>
+                <li id="transaksi-kost-admin">
+                    <a class="nav-link" href="<?= route_to('tr-kost-admin') ?>">
+                        <i class="fas fa-money-check-alt"></i>  
+                        <span>Daftar Transaksi Kost</span>
                     </a>
                 </li>
             <?php endif; ?>

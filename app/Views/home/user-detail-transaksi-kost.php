@@ -18,7 +18,7 @@
                         <th>Jenis Kost</th>
                         <th>Harga</th>
                         <th>Alamat</th>
-                        <th>Tanggal Masuk Kost</th>
+                        <th>Tanggal Pembayaran Terakhir</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -96,6 +96,13 @@
             </button>
 
         <?php
+        else :
+        ?>
+
+            <button type="button" class="btn btn-warning btn-lg btn-view">
+                <i class="fas fa-file-invoice-dollar"></i> Lihat Bukti Pembayaran
+            </button>
+        <?php
         endif;
         ?>
     </div>
@@ -142,6 +149,26 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalViewCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Bukti Pembayaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <img src="<?= base_url() ?>/assets/foto/<?= $dataTR['BUKTI_PEMBAYARAN'] ?>" class="img-thumbnail img-preview" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>
 
 <?= $this->section('CSSModules') ?>
@@ -167,6 +194,10 @@
 
     $(document).on("click", ".btn-upload", function(e) {
         $('#modalCenter').modal('show');
+    });
+
+    $(document).on("click", ".btn-view", function(e) {
+        $('#modalViewCenter').modal('show');
     });
 
     $(document).on("click", ".btn-simpan", function(e) {

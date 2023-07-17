@@ -62,6 +62,9 @@
 					case 'cs':
 						$('#kelola-cleaning-admin').addClass('active');
 						break;
+					case 'tr-kost':
+						$('#transaksi-kost-admin').addClass('active');
+						break;
 				}
 				break;
 		}

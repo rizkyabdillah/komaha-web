@@ -18,6 +18,15 @@ class UserTransaksiKost extends BaseController
         ];
     }
 
+    public function index()
+    {
+        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_KOST AS A LEFT JOIN KOST AS B ON(A.ID_KOST = B.ID_KOST)");
+        $DATA = [
+            'data'    => $DATA_TRANSAKSI,
+        ];
+        return view('home/user-transaksi-kost', array_merge($this->arrayDefault(), $DATA));
+    }
+
     public function indexDetailTransaksi($idTransaksi)
     {
         $DATA_TRANSAKSI = $this->model->getRowDataArray('TRANSAKSI_KOST', ['ID_TRANSAKSI' => $idTransaksi]);

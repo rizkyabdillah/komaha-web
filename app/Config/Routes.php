@@ -65,6 +65,11 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
         $routes->put('(:any)',              'AdminKelolaCS::update/$1',                     ['as' => 'cs-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaCS::delete/$1',                     ['as' => 'cs-delete-admin']);
     });
+
+    $routes->group('tr-kost', function ($routes) {
+        $routes->get('',                    'AdminTransaksiKost::index',                    ['as' => 'tr-kost-admin']);
+        $routes->put('(:any)',              'AdminTransaksiKost::updateStatus/$1',          ['as' => 'tr-kost-update-status-admin']);
+    });
 });
 
 // ================>> <<||>>
