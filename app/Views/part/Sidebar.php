@@ -73,7 +73,13 @@
                 <li id="transaksi-kost-user">
                     <a class="nav-link" href="<?= route_to('tr-kost-user') ?>">
                         <i class="fas fa-money-check-alt"></i>
-                        <span>Daftar Transaksi Kost</span>
+                        <span>Transaksi Kost</span>
+                    </a>
+                </li>
+                <li id="transaksi-catering-user">
+                    <a class="nav-link" href="<?= route_to('tr-catering-user') ?>">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Transaksi Catering</span>
                     </a>
                 </li>
 
@@ -82,8 +88,8 @@
             <?php if (hash_equals($SEGMENT, 'admin')) : ?>
                 <li id="transaksi-kost-admin">
                     <a class="nav-link" href="<?= route_to('tr-kost-admin') ?>">
-                        <i class="fas fa-money-check-alt"></i>  
-                        <span>Daftar Transaksi Kost</span>
+                        <i class="fas fa-money-check-alt"></i>
+                        <span>Transaksi Kost</span>
                     </a>
                 </li>
             <?php endif; ?>

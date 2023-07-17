@@ -155,7 +155,7 @@
                 <li><strong>Waktu Pemesanan</strong> <span>Minimal pemesanan yaitu H-1</span></li>
                 <li><strong>Jenis Menu</strong> <span><?= ucfirst(strtolower($data['KATEGORI'])) ?></span></li>
                 <li><strong>Minimal pembelian</strong> <span>1 Box / Kotak</span></li>
-                <li><a href="#" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
+                <li><a href="<?= route_to('cek-tr-catering', $data['ID_CATERING']) ?>" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
               </ul>
             </div>
           </div>

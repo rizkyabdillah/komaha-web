@@ -44,6 +44,9 @@
 					case 'tr-kost':
 						$('#transaksi-kost-user').addClass('active');
 						break;
+					case 'tr-catering':
+						$('#transaksi-catering-user').addClass('active');
+						break;
 				}
 			case 'admin':
 				switch (CURRENT_URI[4]) {

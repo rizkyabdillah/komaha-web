@@ -154,7 +154,7 @@
                 <li><strong>Harga</strong> <span><?= "Rp " . number_format($data['HARGA'], 2, ',', '.') ?></span></li>
                 <li><strong>Durasi</strong> <span><?= $data['DURASI'] ?> Jam</span></li>
                 <li><strong>Minimal pemesanan</strong> <span><?= $data['DURASI'] ?> Jam atau lebih</span></li>
-                <li><a href="#" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
+                <li><a href="<?= route_to('cek-tr-cs', $data['ID_CLEANING_SERVICE']) ?>" class="btn-visit align-self-start">Pesan Sekarang!</a></li>
               </ul>
             </div>
           </div>
