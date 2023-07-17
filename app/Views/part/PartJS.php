@@ -37,8 +37,14 @@
 		const CURRENT_URI = $(location).attr('href').split('/');
 		switch (CURRENT_URI[3]) {
 			case 'user':
-				$('#dashboard-user').addClass('active');
-				break;
+				switch (CURRENT_URI[4]) {
+					case undefined:
+						$('#dashboard-user').addClass('active');
+						break;
+					case 'tr-kost':
+						$('#transaksi-kost-user').addClass('active');
+						break;
+				}
 			case 'admin':
 				switch (CURRENT_URI[4]) {
 					case undefined:

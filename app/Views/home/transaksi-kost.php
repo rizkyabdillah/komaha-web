@@ -29,6 +29,17 @@
             <div class="main-content">
                 <section class="section">
                     <div class="section-body">
+
+                        <?php if (session()->getFlashData('pesan')) : ?>
+                            <div class="alert alert-danger alert-has-icon">
+                                <div class="alert-icon"><i class="fas fa-times"></i></div>
+                                <div class="alert-body">
+                                    <div class="alert-title">Danger</div>
+                                    <?= session()->getFlashData('pesan'); ?>    
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
                         <h2 class="section-title">FORM TRANSAKSI</h2>
                         <div class="card card-primary">
                             <div class="card-header">
@@ -61,7 +72,7 @@
                             </div>
                             <div class="card-body">
 
-                                <form method="POST" action="<?= route_to('cs-store-admin'); ?>" class="needs-validation form-simpan" novalidate="" enctype="multipart/form-data">
+                                <form method="POST" action="<?= route_to('cs-store-admin'); ?>" class="needs-validation form-simpan" novalidate="">
                                     <?= csrf_field(); ?>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
@@ -109,7 +120,7 @@
 
                             <div class="card-footer text-right">
                                 <button type="button" class="btn btn-primary btn-lg btn-simpan">
-                                <i class="fas fa-money-check-alt"></i> Lanjut Pembayaran
+                                    <i class="fas fa-money-check-alt"></i> Lanjut Pembayaran
                                 </button>
                             </div>
                         </div>

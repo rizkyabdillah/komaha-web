@@ -17,6 +17,11 @@ $routes->setAutoRoute(true);
 
 $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($routes) {
     $routes->get('',                        'UserDashboard::index',                         ['as' => 'dashboard-user']);
+    $routes->group('tr-kost', function ($routes) {
+        $routes->get('',                    'UserTransaksiKost::index',                     ['as' => 'tr-kost-user']);
+        $routes->get('(:any)',              'UserTransaksiKost::indexDetailTransaksi/$1',   ['as' => 'tr-kost-user-detail']);
+
+    });
 });
 
 // ================>> <<||>>
@@ -24,32 +29,32 @@ $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($r
 $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($routes) {
     $routes->get('',                        'AdminDashboard::index',                        ['as' => 'dashboard-admin']);
 
-    $routes->group('users', function ($routes) {            
+    $routes->group('users', function ($routes) {
         $routes->get('',                    'AdminKelolaUser::index',                       ['as' => 'users-admin']);
         $routes->get('add',                 'AdminKelolaUser::storeIndex',                  ['as' => 'users-store-index-admin']);
         $routes->get('(:any)',              'AdminKelolaUser::editIndex/$1',                ['as' => 'users-edit-index-admin']);
         $routes->post('',                   'AdminKelolaUser::store',                       ['as' => 'users-store-admin']);
         $routes->put('(:any)',              'AdminKelolaUser::update/$1',                   ['as' => 'users-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaUser::delete/$1',                   ['as' => 'users-delete-admin']);
-    });         
+    });
 
-    $routes->group('kost', function ($routes) {         
+    $routes->group('kost', function ($routes) {
         $routes->get('',                    'AdminKelolaKost::index',                       ['as' => 'kost-admin']);
         $routes->get('add',                 'AdminKelolaKost::addIndex',                    ['as' => 'kost-add-index-admin']);
         $routes->get('(:any)',              'AdminKelolaKost::editIndex/$1',                ['as' => 'kost-edit-index-admin']);
         $routes->post('',                   'AdminKelolaKost::store',                       ['as' => 'kost-store-admin']);
         $routes->put('(:any)',              'AdminKelolaKost::update/$1',                   ['as' => 'kost-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaKost::delete/$1',                   ['as' => 'kost-delete-admin']);
-    });         
+    });
 
-    $routes->group('catering', function ($routes) {         
+    $routes->group('catering', function ($routes) {
         $routes->get('',                    'AdminKelolaCatering::index',                   ['as' => 'catering-admin']);
         $routes->get('add',                 'AdminKelolaCatering::addIndex',                ['as' => 'catering-add-index-admin']);
         $routes->get('(:any)',              'AdminKelolaCatering::editIndex/$1',            ['as' => 'catering-edit-index-admin']);
         $routes->post('',                   'AdminKelolaCatering::store',                   ['as' => 'catering-store-admin']);
         $routes->put('(:any)',              'AdminKelolaCatering::update/$1',               ['as' => 'catering-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaCatering::delete/$1',               ['as' => 'catering-delete-admin']);
-    }); 
+    });
 
     $routes->group('cs', function ($routes) {
         $routes->get('',                    'AdminKelolaCS::index',                         ['as' => 'cs-admin']);

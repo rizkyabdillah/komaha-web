@@ -33,13 +33,13 @@
             <?php endif; ?>
 
             <!-- ==== -->
-            <li class="menu-header">Master Data</li>
 
             <?php if (hash_equals($SEGMENT, 'user')) : ?>
 
             <?php endif; ?>
 
             <?php if (hash_equals($SEGMENT, 'admin')) : ?>
+                <li class="menu-header">Master Data</li>
                 <li id="kelola-user-admin">
                     <a class="nav-link" href="<?= route_to('users-admin') ?>">
                         <i class="fas fa-user-friends"></i>
@@ -70,6 +70,12 @@
             <li class="menu-header">Transaksi</li>
 
             <?php if (hash_equals($SEGMENT, 'user')) : ?>
+                <li id="transaksi-kost-user">
+                    <a class="nav-link" href="<?= route_to('tr-kost-user') ?>">
+                        <i class="fas fa-money-check-alt"></i>
+                        <span>Daftar Transaksi Kost</span>
+                    </a>
+                </li>
 
             <?php endif; ?>
 
