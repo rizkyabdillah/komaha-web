@@ -5,7 +5,7 @@
 <!-- SUMMARY SEGMENT -->
 <div class="row">
     <!-- PRODUK COUNT -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
         <div class="card card-statistic-1 card-primary">
             <div class="card-icon bg-primary">
                 <i class="fas fa-folder-open"></i>
@@ -21,9 +21,9 @@
         </div>
     </div>
     <!-- TRANSAKSI COUNT -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1 card-primary">
-            <div class="card-icon bg-primary">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+        <div class="card card-statistic-1 card-info">
+            <div class="card-icon bg-info">
                 <i class="fas fa-shopping-basket"></i>
             </div>
             <div class="card-wrap">
@@ -36,14 +36,10 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="row">
     <!-- PRODUK COUNT -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1 card-primary">
-            <div class="card-icon bg-primary">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+        <div class="card card-statistic-1 card-warning">
+            <div class="card-icon bg-warning">
                 <i class="fas fa-folder-open"></i>
             </div>
             <div class="card-wrap">
@@ -57,9 +53,9 @@
         </div>
     </div>
     <!-- TRANSAKSI COUNT -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1 card-primary">
-            <div class="card-icon bg-primary">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+        <div class="card card-statistic-1 card-danger">
+            <div class="card-icon bg-danger">
                 <i class="fas fa-shopping-basket"></i>
             </div>
             <div class="card-wrap">
@@ -68,6 +64,22 @@
                 </div>
                 <div class="card-body">
                     0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Calendar</h4>
+            </div>
+            <div class="card-body">
+                <div class="fc-overflow">
+                    <div id="myEvent"></div>
                 </div>
             </div>
         </div>
