@@ -47,6 +47,9 @@
 					case 'tr-catering':
 						$('#transaksi-catering-user').addClass('active');
 						break;
+					case 'tr-cs':
+						$('#transaksi-cs-user').addClass('active');
+						break;
 				}
 			case 'admin':
 				switch (CURRENT_URI[4]) {
@@ -70,6 +73,9 @@
 						break;
 					case 'tr-catering':
 						$('#transaksi-catering-admin').addClass('active');
+						break;
+					case 'tr-cs':
+						$('#transaksi-cs-admin').addClass('active');
 						break;
 				}
 				break;

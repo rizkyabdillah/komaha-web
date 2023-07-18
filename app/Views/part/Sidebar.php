@@ -82,6 +82,12 @@
                         <span>Transaksi Catering</span>
                     </a>
                 </li>
+                <li id="transaksi-cs-user">
+                    <a class="nav-link" href="<?= route_to('tr-cs-user') ?>">
+                        <i class="fas fa-money-bill-alt"></i>
+                        <span>Transaksi CS</span>
+                    </a>
+                </li>
 
             <?php endif; ?>
 
@@ -96,6 +102,12 @@
                     <a class="nav-link" href="<?= route_to('tr-catering-admin') ?>">
                         <i class="fas fa-credit-card"></i>
                         <span>Transaksi Catering</span>
+                    </a>
+                </li>
+                <li id="transaksi-cs-admin">
+                    <a class="nav-link" href="<?= route_to('tr-cs-admin') ?>">
+                        <i class="fas fa-money-bill-alt"></i>
+                        <span>Transaksi CS</span>
                     </a>
                 </li>
             <?php endif; ?>

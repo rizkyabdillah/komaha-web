@@ -29,11 +29,11 @@ $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($r
         $routes->post('',                   'UserTransaksiCatering::store',                             ['as' => 'tr-catering-store-user']);
         $routes->put('(:any)',              'UserTransaksiCatering::updateBuktiPembayaran/$1',          ['as' => 'tr-catering-update-bukti-user']);
     });
-    $routes->group('tr-catering', function ($routes) {
-        $routes->get('',                    'UserTransaksiCatering::index',                             ['as' => 'tr-catering-user']);
-        $routes->get('(:any)',              'UserTransaksiCatering::indexDetailTransaksi/$1',           ['as' => 'tr-catering-user-detail']);
-        $routes->post('',                   'UserTransaksiCatering::store',                             ['as' => 'tr-catering-store-user']);
-        $routes->put('(:any)',              'UserTransaksiCatering::updateBuktiPembayaran/$1',          ['as' => 'tr-catering-update-bukti-user']);
+    $routes->group('tr-cs', function ($routes) {
+        $routes->get('',                    'UserTransaksiCS::index',                                   ['as' => 'tr-cs-user']);
+        $routes->get('(:any)',              'UserTransaksiCS::indexDetailTransaksi/$1',                 ['as' => 'tr-cs-user-detail']);
+        $routes->post('',                   'UserTransaksiCS::store',                                   ['as' => 'tr-cs-store-user']);
+        $routes->put('(:any)',              'UserTransaksiCS::updateBuktiPembayaran/$1',                ['as' => 'tr-cs-update-bukti-user']);
     });
 });
 

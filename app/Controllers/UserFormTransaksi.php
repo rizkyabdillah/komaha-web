@@ -44,4 +44,10 @@ class UserFormTransaksi extends BaseController
         return view('home/transaksi-catering', $DATA);
     }
 
+    public function indexFormCS($idCS)
+    {
+        $DATA['data']   = $this->model->getRowDataArray('CLEANING_SERVICE', ['ID_CLEANING_SERVICE' => $idCS]);
+        return view('home/transaksi-cs', $DATA);
+    }
+
 }
