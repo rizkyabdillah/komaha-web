@@ -33,13 +33,18 @@
             <?php endif; ?>
 
             <!-- ==== -->
+            <li class="menu-header">Master Data</li>
 
             <?php if (hash_equals($SEGMENT, 'user')) : ?>
-
+                <li id="ubah-user-profile">
+                    <a class="nav-link" href="<?= route_to('users-edit-profile', session('ID_USER')) ?>">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Ubah Data Pengguna</span>
+                    </a>
+                </li>
             <?php endif; ?>
 
             <?php if (hash_equals($SEGMENT, 'admin')) : ?>
-                <li class="menu-header">Master Data</li>
                 <li id="kelola-user-admin">
                     <a class="nav-link" href="<?= route_to('users-admin') ?>">
                         <i class="fas fa-user-friends"></i>

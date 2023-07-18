@@ -16,7 +16,8 @@ $routes->set404Override();
 $routes->setAutoRoute(true);
 
 $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($routes) {
-    $routes->get('',                        'UserDashboard::index',                         ['as' => 'dashboard-user']);
+    $routes->get('',                        'UserDashboard::index',                                     ['as' => 'dashboard-user']);
+    $routes->get('profile/(:any)',          'AdminKelolaUser::editIndex/$1',                            ['as' => 'users-edit-profile']);
     $routes->group('tr-kost', function ($routes) {
         $routes->get('',                    'UserTransaksiKost::index',                                 ['as' => 'tr-kost-user']);
         $routes->get('(:any)',              'UserTransaksiKost::indexDetailTransaksi/$1',               ['as' => 'tr-kost-user-detail']);
@@ -41,8 +42,8 @@ $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($r
 
 $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($routes) {
     $routes->get('',                        'AdminDashboard::index',                                    ['as' => 'dashboard-admin']);
-            
-    $routes->group('users', function ($routes) {            
+
+    $routes->group('users', function ($routes) {
         $routes->get('',                    'AdminKelolaUser::index',                                   ['as' => 'users-admin']);
         $routes->get('add',                 'AdminKelolaUser::storeIndex',                              ['as' => 'users-store-index-admin']);
         $routes->get('(:any)',              'AdminKelolaUser::editIndex/$1',                            ['as' => 'users-edit-index-admin']);
@@ -58,9 +59,9 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
         $routes->post('',                   'AdminKelolaKost::store',                                   ['as' => 'kost-store-admin']);
         $routes->put('(:any)',              'AdminKelolaKost::update/$1',                               ['as' => 'kost-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaKost::delete/$1',                               ['as' => 'kost-delete-admin']);
-    });         
+    });
 
-    $routes->group('catering', function ($routes) {         
+    $routes->group('catering', function ($routes) {
         $routes->get('',                    'AdminKelolaCatering::index',                               ['as' => 'catering-admin']);
         $routes->get('add',                 'AdminKelolaCatering::addIndex',                            ['as' => 'catering-add-index-admin']);
         $routes->get('(:any)',              'AdminKelolaCatering::editIndex/$1',                        ['as' => 'catering-edit-index-admin']);
@@ -76,18 +77,23 @@ $routes->group('admin', ['filter' => 'not_auth_admin_filter'],  function ($route
         $routes->post('',                   'AdminKelolaCS::store',                                     ['as' => 'cs-store-admin']);
         $routes->put('(:any)',              'AdminKelolaCS::update/$1',                                 ['as' => 'cs-update-admin']);
         $routes->delete('(:any)',           'AdminKelolaCS::delete/$1',                                 ['as' => 'cs-delete-admin']);
-    });         
+    });
 
-    $routes->group('tr-kost', function ($routes) {          
+    $routes->group('tr-kost', function ($routes) {
         $routes->get('',                    'AdminTransaksiKost::index',                                ['as' => 'tr-kost-admin']);
         $routes->put('(:any)',              'AdminTransaksiKost::updateStatus/$1',                      ['as' => 'tr-kost-update-status-admin']);
-    });            
+    });
 
-    $routes->group('tr-catering', function ($routes) {          
+    $routes->group('tr-catering', function ($routes) {
         $routes->get('',                    'AdminTransaksiCatering::index',                            ['as' => 'tr-catering-admin']);
         $routes->put('(:any)',              'AdminTransaksiCatering::updateStatus/$1',                  ['as' => 'tr-catering-update-status-admin']);
-    });   
-});         
+    });
+
+    $routes->group('tr-cs', function ($routes) {
+        $routes->get('',                    'AdminTransaksiCS::index',                                  ['as' => 'tr-cs-admin']);
+        $routes->put('(:any)',              'AdminTransaksiCS::updateStatus/$1',                        ['as' => 'tr-cs-update-status-admin']);
+    });
+});
 
 // ================>> <<||>>            
 

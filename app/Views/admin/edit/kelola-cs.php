@@ -55,7 +55,7 @@
 
     </div>
     <div class="card-footer bg-whitesmoke">
-        <i>Created By. Rizky</i>
+        <i>Copyright By KOMAHA TEAM</i>
     </div>
 </div>
 <?= $this->endSection() ?>

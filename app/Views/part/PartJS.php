@@ -50,6 +50,9 @@
 					case 'tr-cs':
 						$('#transaksi-cs-user').addClass('active');
 						break;
+					case 'profile':
+						$('#ubah-user-profile').addClass('active');
+						break;
 				}
 			case 'admin':
 				switch (CURRENT_URI[4]) {
