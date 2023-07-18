@@ -29,6 +29,12 @@ $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($r
         $routes->post('',                   'UserTransaksiCatering::store',                             ['as' => 'tr-catering-store-user']);
         $routes->put('(:any)',              'UserTransaksiCatering::updateBuktiPembayaran/$1',          ['as' => 'tr-catering-update-bukti-user']);
     });
+    $routes->group('tr-catering', function ($routes) {
+        $routes->get('',                    'UserTransaksiCatering::index',                             ['as' => 'tr-catering-user']);
+        $routes->get('(:any)',              'UserTransaksiCatering::indexDetailTransaksi/$1',           ['as' => 'tr-catering-user-detail']);
+        $routes->post('',                   'UserTransaksiCatering::store',                             ['as' => 'tr-catering-store-user']);
+        $routes->put('(:any)',              'UserTransaksiCatering::updateBuktiPembayaran/$1',          ['as' => 'tr-catering-update-bukti-user']);
+    });
 });
 
 // ================>> <<||>>

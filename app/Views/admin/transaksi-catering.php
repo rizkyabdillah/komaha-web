@@ -32,7 +32,7 @@
                             <td class="text-center"><?= $i++ ?></td>
                             <td><?= $data['NAMA_MENU'] ?></td>
                             <td><?= $data['NAMA_LENGKAP'] ?></td>
-                            <td><?= $data['TANGGAL_PENGIRIMAN'] ?></td>
+                            <td><?= $data['TANGGAL_PENGIRIMAN'] ?> - <?= $data['WAKTU_PENGIRIMAN'] ?></td>
                             <td><?= $data['QUANTITY'] ?></td>
                             <td><?= "Rp " . number_format($data['TOTAL'], 2, ',', '.') ?></td>
                             <td>Transfer Bank</td>
