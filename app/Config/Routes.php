@@ -17,7 +17,8 @@ $routes->setAutoRoute(true);
 
 $routes->group('user', ['filter' =>  'not_auth_user_filter'],       function ($routes) {
     $routes->get('',                        'UserDashboard::index',                                     ['as' => 'dashboard-user']);
-    $routes->get('profile/(:any)',          'AdminKelolaUser::editIndex/$1',                            ['as' => 'users-edit-profile']);
+    $routes->get('profile/(:any)',          'UserKelolaProfile::editIndex/$1',                          ['as' => 'users-edit-profile']);
+    $routes->put('profile/(:any)',          'UserKelolaProfile::update/$1',                             ['as' => 'users-update-profile']);
     $routes->group('tr-kost', function ($routes) {
         $routes->get('',                    'UserTransaksiKost::index',                                 ['as' => 'tr-kost-user']);
         $routes->get('(:any)',              'UserTransaksiKost::indexDetailTransaksi/$1',               ['as' => 'tr-kost-user-detail']);

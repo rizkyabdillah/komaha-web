@@ -6,7 +6,12 @@
         <h4>Ubah Data Pengguna</h4>
     </div>
     <div class="card-body">
-        <form method="POST" action="<?= route_to('users-update-admin', $data['ID_USER']); ?>" class="needs-validation form-simpan" novalidate="">
+
+        <?php
+        $URI = explode('/', current_url(true));
+        $SEGMENT = $URI[3];
+        ?>
+        <form method="POST" action="<?= route_to(hash_equals($SEGMENT, 'user') ? 'users-update-profile' : 'users-update-admin', $data['ID_USER']); ?>" class="needs-validation form-simpan" novalidate="">
             <?= csrf_field(); ?>
             <input type="hidden" name="_method" value="PUT" />
 
@@ -91,5 +96,12 @@
     $(document).on("click", ".btn-simpan", function(e) {
         $('.form-simpan').submit();
     });
+
+    <?php if (session()->getFlashData('pesan')) : ?>
+        swal('Sukses', '<?= session()->getFlashData('pesan'); ?>', 'success', {
+            buttons: false,
+            timer: 1200,
+        });
+    <?php endif ?>
 </script>
 <?= $this->endSection() ?>
