@@ -78,7 +78,7 @@
                                 <form method="POST" action="<?= route_to('tr-catering-store-user'); ?>" class="needs-validation form-simpan" novalidate="">
                                     <?= csrf_field(); ?>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="tanggal">Tanggal Pengiriman Catering</label>
                                             <input type="hidden" name="ID_CATERING" value="<?= $data['ID_CATERING'] ?>">
                                             <input type="hidden" name="ID_USER" value="<?= session('ID_USER') ?>">
@@ -88,7 +88,14 @@
                                                 Usahakan tanggal pengiriman harus diatas H+1 dari tanggal pemesanan
                                             </small>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
+                                            <label for="waktu">Tanggal Pengiriman Catering</label>
+                                            <input type="text" class="form-control" id="waktu" name="WAKTU_PENGIRIMAN" placeholder="Masukkan Waktu Pengiriman" value="08:00" required>
+                                            <small>
+                                                Waktu pengiriman harus berupa jam dan menit dengan dipisahkan oleh tanda titik dua <b>:</b>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-4">
                                             <label for="tanggal">Banyak Pesanan</label>
                                             <input type="text" class="form-control numonly" id="quantity" name="QUANTITY" placeholder="Masukkan Banyak Pesanan" value="1" required>
                                             <small>

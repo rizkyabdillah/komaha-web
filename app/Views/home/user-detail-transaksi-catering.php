@@ -28,7 +28,7 @@
                         <td><?= "Rp " . number_format($dataCatering['HARGA'], 2, ',', '.') . ' per kotak/box'?></td>
                         <td><?= $dataTR['QUANTITY'] ?></td>
                         <td><?= "Rp " . number_format($dataTR['TOTAL'], 2, ',', '.')?></td>
-                        <td class="text-center"><?= $dataTR['TANGGAL_PENGIRIMAN'] ?></td>
+                        <td><?= $dataTR['TANGGAL_PENGIRIMAN'] ?> - <?= $dataTR['WAKTU_PENGIRIMAN'] ?></td>
                     </tr>
                 </tbody>
             </table>

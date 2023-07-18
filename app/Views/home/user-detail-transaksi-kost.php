@@ -28,7 +28,7 @@
                         <td>Kos <?= ucfirst(strtolower($dataKost['JENIS_KOST'])) ?></td>
                         <td><?= "Rp " . number_format($dataKost['HARGA'], 2, ',', '.') . ' per ' . strtolower($dataKost['PERIODE']) ?></td>
                         <td><?= $dataKost['ALAMAT'] . ', Kec. ' .  ucfirst(strtolower($dataKost['AREA'])) ?>, Kota Malang</td>
-                        <td class="text-center"><?= $dataTR['TANGGAL_AWAL_MASUK'] ?></td>
+                        <td><?= $dataTR['TANGGAL_AWAL_MASUK'] ?></td>
                     </tr>
                 </tbody>
             </table>

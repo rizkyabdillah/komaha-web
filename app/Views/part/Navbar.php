@@ -15,9 +15,12 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Menu</div>
-                <!-- <a href="<?= route_to('adminPassword') ?>" class="dropdown-item has-icon">
-                    <i class="fas fa-key"></i> Ubah password
-                </a> -->
+
+                <?php if (hash_equals($SEGMENT, 'user')) : ?>
+                    <a href="<?= route_to('index') ?>" class="dropdown-item has-icon">
+                        <i class="fas fa-home"></i> Halaman Utama
+                    </a>
+                <?php endif; ?>
                 <div class="dropdown-divider"></div>
                 <a href="<?= route_to(hash_equals($SEGMENT, 'user') ?  'logout-user' : 'logout-admin') ?>" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
