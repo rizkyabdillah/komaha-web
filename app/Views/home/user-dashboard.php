@@ -8,14 +8,14 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
         <div class="card card-statistic-1 card-primary">
             <div class="card-icon bg-primary">
-                <i class="fas fa-folder-open"></i>
+                <i class="fas fa-coins"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
                     <h4>Total Transaksi</h4>
                 </div>
                 <div class="card-body">
-                    0
+                    <?= $countTrKost + $countTrCS + $countTrCatering ?>
                 </div>
             </div>
         </div>
@@ -24,14 +24,14 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
         <div class="card card-statistic-1 card-info">
             <div class="card-icon bg-info">
-                <i class="fas fa-shopping-basket"></i>
+                <i class="fas fa-money-check-alt"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
                     <h4>Total Pemesanan Kost</h4>
                 </div>
                 <div class="card-body">
-                    0
+                    <?= $countTrKost ?>
                 </div>
             </div>
         </div>
@@ -40,14 +40,14 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
         <div class="card card-statistic-1 card-warning">
             <div class="card-icon bg-warning">
-                <i class="fas fa-folder-open"></i>
+                <i class="fas fa-credit-card"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
                     <h4>Total Pemesanan Cleaning Service</h4>
                 </div>
                 <div class="card-body">
-                    0
+                    <?= $countTrCS ?>
                 </div>
             </div>
         </div>
@@ -56,14 +56,14 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
         <div class="card card-statistic-1 card-danger">
             <div class="card-icon bg-danger">
-                <i class="fas fa-shopping-basket"></i>
+                <i class="fas fa-money-bill-alt"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
                     <h4>Total Pemesanan Catering</h4>
                 </div>
                 <div class="card-body">
-                    0
+                    <?= $countTrCatering ?>
                 </div>
             </div>
         </div>
