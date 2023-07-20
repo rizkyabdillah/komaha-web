@@ -20,7 +20,7 @@ class UserTransaksiCS extends BaseController
 
     public function index()
     {
-        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_CS AS A LEFT JOIN CLEANING_SERVICE AS B ON(A.ID_CLEANING_SERVICE = B.ID_CLEANING_SERVICE)");
+        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_CS AS A LEFT JOIN CLEANING_SERVICE AS B ON(A.ID_CLEANING_SERVICE = B.ID_CLEANING_SERVICE) WHERE A.ID_USER ='" . session('ID_USER') . "'");
         $DATA = [
             'data'    => $DATA_TRANSAKSI,
         ];

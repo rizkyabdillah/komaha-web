@@ -20,7 +20,7 @@ class UserTransaksiKost extends BaseController
 
     public function index()
     {
-        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_KOST AS A LEFT JOIN KOST AS B ON(A.ID_KOST = B.ID_KOST)");
+        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_KOST AS A LEFT JOIN KOST AS B ON(A.ID_KOST = B.ID_KOST) WHERE A.ID_USER ='" . session('ID_USER') . "'");
         $DATA = [
             'data'    => $DATA_TRANSAKSI,
         ];

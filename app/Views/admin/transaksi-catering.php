@@ -20,6 +20,7 @@
                         <th>Jenis Pembayaran</th>
                         <th>Bank Tujuan</th>
                         <th>Status Pembayaran</th>
+                        <th>Bukti</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
@@ -38,6 +39,11 @@
                             <td>Transfer Bank</td>
                             <td>Bank <?= $data['BANK_PEMBAYARAN'] ?></td>
                             <td><span class="badge badge-<?= hash_equals($data['STATUS_PEMBAYARAN'], 'DIKONFIRMASI') ? 'primary' : 'danger' ?>"><?= $data['STATUS_PEMBAYARAN'] ?></span></td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-action btn-bukti" data-img="<?= $data['BUKTI_PEMBAYARAN']; ?>" data-toggle="tooltip" data-original-title="Bukti Pembayaran">
+                                    <i class="fas fa-receipt"></i>
+                                </a>
+                            </td>
                             <td class="text-center">
                                 <?php
                                 if (hash_equals($data['STATUS_PEMBAYARAN'], 'MENUNGGU KONFIRMASI') || hash_equals($data['STATUS_PEMBAYARAN'], 'KONFIRMASI DITOLAK')) :
@@ -83,6 +89,27 @@
 </div>
 <?= $this->endSection() ?>
 
+<?= $this->section('Modal') ?>
+<div class="modal fade" id="modalViewCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Bukti Pembayaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <img src="#" class="img-thumbnail img-preview" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
 
 <?= $this->section('CSSModules') ?>
 <link rel="stylesheet" href="<?= base_url(); ?>/assets/modules/datatables/datatables.min.css">
@@ -122,6 +149,19 @@
 
     $(document).on("click", ".btn-rej", function(e) {
         $('#tolak').submit();
+    });
+
+    $(document).on("click", ".btn-bukti", function(e) {
+        var bukti = $(this).data('img');
+        if (bukti === "") {
+            swal('Danger', 'Bukti pembayaran belum tersedia!', 'warning', {
+                buttons: false,
+                timer: 1200,
+            });
+        } else {
+            $('.img-preview').attr('src', '<?= base_url() ?>/assets/foto/' + bukti);
+            $('#modalViewCenter').modal('show');
+        }
     });
 </script>
 <?= $this->endSection() ?>

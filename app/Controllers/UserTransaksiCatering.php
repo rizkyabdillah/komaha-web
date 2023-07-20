@@ -20,7 +20,7 @@ class UserTransaksiCatering extends BaseController
 
     public function index()
     {
-        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_CATERING AS A LEFT JOIN CATERING AS B ON(A.ID_CATERING = B.ID_CATERING)");
+        $DATA_TRANSAKSI = $this->model->queryArray("SELECT * FROM TRANSAKSI_CATERING AS A LEFT JOIN CATERING AS B ON(A.ID_CATERING = B.ID_CATERING) WHERE A.ID_USER ='" . session('ID_USER') . "'");
         $DATA = [
             'data'    => $DATA_TRANSAKSI,
         ];
